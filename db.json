@@ -1,0 +1,27 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Guest User",
+      "image": "https://avatar.iran.liara.run/public/1",
+      "text": "Welcome to Dhankhar Dragons! This is a mock testimonial.",
+      "rating": 5,
+      "is_active": 1,
+      "createdAt": "2026-02-23T17:21:38.043Z"
+    },
+    {
+      "id": 2,
+      "name": "Verified Admin",
+      "image": "https://avatar.iran.liara.run/public/1",
+      "text": "Admin panel is working perfectly!",
+      "rating": 5,
+      "is_active": 1,
+      "createdAt": "2026-02-24T10:56:54.323Z",
+      "updatedAt": "2026-02-24T10:56:54.323Z"
+    }
+  ],
+  "users": [],
+  "rooms": [],
+  "bookings": [],
+  "packages": []
+}

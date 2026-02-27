@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  app:
+    image: bilvaleaf/main_website
+    container_name: main_website_dev
+    restart: always
+    ports:
+      - "5544:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8
+    container_name: main_website_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tourism_db
+      MYSQL_USER: tourism_user
+      MYSQL_PASSWORD: tourism_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+volumes:
+  db_data:
