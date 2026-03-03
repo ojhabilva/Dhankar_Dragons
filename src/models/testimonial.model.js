@@ -28,6 +28,13 @@ const Testimonial = sequelize.define("testimonials", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  status: {
+    type: DataTypes.STRING,
+    defaultValue: "pending",
+    validate: {
+      isIn: [["pending", "approved", "declined"]],
+    },
+  },
   is_active: {
     type: DataTypes.INTEGER,
     defaultValue: 1,

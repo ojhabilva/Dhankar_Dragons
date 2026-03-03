@@ -19,7 +19,7 @@ export default function PackagesPage() {
     return (
         <div className="bg-[#f5f5f0] min-h-screen">
             {/* Hero */}
-            <div className="relative h-[50vh] w-full">
+            <div className="relative h-[35vh] md:h-[50vh] w-full">
                 <Image
                     src="/Home page/packages/summer/Firefly (1) 1.png"
                     alt="Spiti Valley Packages"
@@ -29,7 +29,7 @@ export default function PackagesPage() {
                 />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-5xl font-serif font-bold mb-3">Tour Packages</h1>
+                        <h1 className="text-3xl md:text-5xl font-serif font-bold mb-3">Tour Packages</h1>
                         <p className="text-lg text-white/80 italic">Curated experiences across Spiti Valley</p>
                     </div>
                 </div>
@@ -79,9 +79,6 @@ export default function PackagesPage() {
                                             alt={pkg.name}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#8B1C1C]">
-                                            ₹{Number(pkg.price).toLocaleString("en-IN")}
-                                        </div>
                                     </div>
                                     <div className="p-6">
                                         <h3 className="text-xl font-serif font-bold text-gray-800">{pkg.name}</h3>
@@ -102,7 +99,7 @@ export default function PackagesPage() {
                 ) : null}
 
                 {/* CTA */}
-                <div className="mt-16 bg-[#153e64] rounded-3xl p-10 text-center text-white">
+                <div className="mt-12 md:mt-16 bg-[#153e64] rounded-2xl md:rounded-3xl p-6 md:p-10 text-center text-white">
                     <h2 className="text-3xl font-serif font-bold mb-3">Can't Find What You're Looking For?</h2>
                     <p className="text-white/70 mb-6">Contact us to create a custom itinerary tailored just for you.</p>
                     <Link href="/contact">

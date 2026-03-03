@@ -7,7 +7,7 @@ export default function AboutPage() {
     <main className="w-full overflow-hidden">
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative h-[85vh] w-full">
+      <section className="relative h-[50vh] md:h-[85vh] w-full">
         <Image
           src="/Home page/Hero image/Home.jpg"
           alt="Hotel View"
@@ -35,7 +35,7 @@ export default function AboutPage() {
 
 
       {/* ================= ABOUT CONTENT ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <p className="text-gray-700 leading-relaxed text-lg font-serif">
           Nestled in the serene landscape of Spiti Valley, Himachal Pradesh, our
           hotel offers a comfortable and welcoming stay amidst the raw beauty
@@ -60,7 +60,7 @@ export default function AboutPage() {
       </section>
 
       {/* ================= OUR MISSION ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <Image
           src="/Home page/about/Firefly_A cinematic travel photograph of a solo female traveler sitting on the edge of a rock 524921 1.png"
           alt="Mission"
@@ -70,7 +70,7 @@ export default function AboutPage() {
         />
 
         <div>
-          <h2 className="text-4xl font-bold mb-6">OUR MISSION</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">OUR MISSION</h2>
           <p className="text-gray-700 text-lg leading-relaxed">
             To be a home for travelers from around the world seeking
             authenticity, comfort, and a sense of belonging. We are committed
@@ -84,7 +84,7 @@ export default function AboutPage() {
       <section className="grid md:grid-cols-2">
 
         {/* LEFT CONTENT */}
-        <div className="bg-[#a6763b] text-white px-10 py-16 flex flex-col justify-center">
+        <div className="bg-[#a6763b] text-white px-6 md:px-10 py-10 md:py-16 flex flex-col justify-center">
           <h3 className="text-3xl font-semibold mb-4">Get In Touch</h3>
           <p className="mb-8">
             Want to get in touch? We would love to hear from you.
@@ -97,7 +97,7 @@ export default function AboutPage() {
         </div>
 
         {/* RIGHT IMAGE WITH FADE */}
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-64 md:h-full min-h-[250px]">
           <Image
             src="/Home page/about/Firefly_A Ladakhi woman hotel receptionist receiving a phone call at the reception desk, wear 661804 1.png"
             alt="Reception"

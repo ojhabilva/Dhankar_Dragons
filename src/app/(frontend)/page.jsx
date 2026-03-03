@@ -39,7 +39,7 @@ export default function HomePage() {
 
   return (
     <div className="">
-      <section className="HeroImg relative w-full h-[77vh]  overflow-hidden">
+      <section className="HeroImg relative w-full h-[50vh] md:h-[77vh] overflow-hidden">
         <Image
           src={HomeImg}
           alt="Resort"
@@ -48,7 +48,7 @@ export default function HomePage() {
           className="object-contain lg:object-cover"
         />
       </section>
-      <section className="Elevate Your Escape  max-w-7xl mx-auto px-2 py-5">
+      <section className="Elevate Your Escape max-w-7xl mx-auto px-4 py-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
           {/* LEFT IMAGE */}
@@ -67,7 +67,7 @@ export default function HomePage() {
 
             {/* TEXT CONTENT */}
             <div>
-              <h2 className="text-4xl font-serif font-semibold mb-4">
+              <h2 className="text-2xl md:text-4xl font-serif font-semibold mb-4">
                 Elevate Your Escape
               </h2>
               <p className="text-gray-600 leading-relaxed">
@@ -114,15 +114,15 @@ export default function HomePage() {
         </div>
 
         {/* Heading */}
-        <h2 className="text-center text-4xl md:text-5xl font-semibold italic text-blue-900 mb-16">
+        <h2 className="text-center text-3xl md:text-5xl font-semibold italic text-blue-900 mb-8 md:mb-16">
           Enjoy your Holidays
         </h2>
 
         {/* Circular Images */}
-        <div className="flex items-center justify-center gap-8 md:gap-14 flex-wrap">
+        <div className="flex items-center justify-center gap-4 md:gap-14 flex-wrap px-4">
 
           {/* Left Circle */}
-          <div className="w-44 h-44 md:w-56 md:h-56 rounded-full border-4 border-white overflow-hidden">
+          <div className="w-32 h-32 md:w-56 md:h-56 rounded-full border-4 border-white overflow-hidden">
             <Image
               src={Bike}
               alt="Bike tour"
@@ -133,7 +133,7 @@ export default function HomePage() {
           </div>
 
           {/* Center Circle (Bigger) */}
-          <div className="w-60 h-60 md:w-80 md:h-80 rounded-full border-4 border-white overflow-hidden">
+          <div className="w-44 h-44 md:w-80 md:h-80 rounded-full border-4 border-white overflow-hidden">
             <Image
               src={Hourse}
               alt="Horse trekking"
@@ -144,7 +144,7 @@ export default function HomePage() {
           </div>
 
           {/* Right Circle */}
-          <div className="w-44 h-44 md:w-56 md:h-56 rounded-full border-4 border-white overflow-hidden">
+          <div className="w-32 h-32 md:w-56 md:h-56 rounded-full border-4 border-white overflow-hidden">
             <Image
               src={Car}
               alt="Road trip"
@@ -160,32 +160,42 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-3 ">
         <div className="bg-white rounded-3xl shadow-xl p-8">
 
-          <h2 className="text-4xl font-serif text-gray-500 mb-8">
+          <h2 className="text-2xl md:text-4xl font-serif text-gray-500 mb-4 md:mb-8">
             CHOOSE YOUR ROOM
           </h2>
 
-          {/* Horizontal scroll */}
-          <div className="flex gap-8 overflow-x-auto no-scrollbar pb-4">
-            {loading ? (
-              <p className="text-gray-400 italic">Finding perfect rooms for you...</p>
-            ) : rooms.length > 0 ? (
-              rooms.map((room) => (
-                <RoomCard
-                  key={room.id}
-                  slug={room.slug}
-                  image={room.image}
-                  title={room.name}
-                  capacity={room.capacity}
-                />
-              ))
-            ) : (
-              <p className="text-gray-400 italic">No rooms available at the moment.</p>
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-4">
+              {loading ? (
+                <p className="text-gray-400 italic">Finding perfect rooms for you...</p>
+              ) : rooms.length > 0 ? (
+                rooms.map((room) => (
+                  <RoomCard
+                    key={room.id}
+                    slug={room.slug}
+                    image={room.image}
+                    title={room.name}
+                    capacity={room.capacity}
+                  />
+                ))
+              ) : (
+                <p className="text-gray-400 italic">No rooms available at the moment.</p>
+              )}
+            </div>
+            {!loading && rooms.length > 0 && (
+              <div className="flex justify-center -mt-4 relative z-10">
+                <Link href="/rooms/regular">
+                  <button className="bg-[#8B1C1C] hover:bg-[#6f1515] text-white px-8 py-3 rounded-lg font-bold text-lg tracking-wide transition shadow-lg">
+                    BOOK NOW
+                  </button>
+                </Link>
+              </div>
             )}
           </div>
         </div>
       </section>
       <TestimonialSlider />
-      <section className="relative w-full h-[500px] overflow-hidden">
+      <section className="relative w-full h-[350px] md:h-[500px] overflow-hidden">
 
         {/* Background Image */}
         <Image

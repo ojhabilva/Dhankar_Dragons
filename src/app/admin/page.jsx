@@ -17,7 +17,7 @@ export default function AdminDashboardPage() {
             try {
                 const headers = { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` };
                 const [tRes, rRes, bRes, pRes] = await Promise.all([
-                    fetch("/api/testimonials", { headers }),
+                    fetch("/api/testimonials?all=true", { headers }),
                     fetch("/api/rooms", { headers }),
                     fetch("/api/bookings", { headers }),
                     fetch("/api/packages", { headers }),
@@ -60,7 +60,7 @@ export default function AdminDashboardPage() {
     return (
         <div className="space-y-8">
             <div>
-                <h1 className="text-3xl font-serif font-bold text-gray-800">Dashboard Overview</h1>
+                <h1 className="text-2xl md:text-3xl font-serif font-bold text-gray-800">Dashboard Overview</h1>
                 <p className="text-gray-500 mt-1 italic">Welcome back to Dhankhar Dragons Admin.</p>
             </div>
 

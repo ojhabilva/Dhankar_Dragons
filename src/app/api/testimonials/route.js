@@ -5,10 +5,22 @@ import { verifyAdmin } from "@/utils/auth";
 
 await connectDB();
 
-export async function GET() {
+export async function GET(req) {
   try {
+    const { searchParams } = new URL(req.url);
+    const all = searchParams.get("all");
+
+    let where = { is_active: 1, status: "approved" };
+
+    if (all === "true") {
+      if (!verifyAdmin(req)) {
+        return NextResponse.json({ msg: "Unauthorized" }, { status: 401 });
+      }
+      where = { is_active: 1 };
+    }
+
     const testimonials = await Testimonial.findAll({
-      where: { is_active: 1 },
+      where,
       order: [["createdAt", "DESC"]],
     });
     return NextResponse.json({ success: true, data: testimonials });
@@ -19,13 +31,13 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  if (!verifyAdmin(req)) return NextResponse.json({ msg: "Unauthorized" }, { status: 401 });
   try {
-    const { name, image, text, rating } = await req.json();
-    if (!name || !image || !text || !rating) {
+    const { name, text, rating } = await req.json();
+    if (!name || !text || !rating) {
       return NextResponse.json({ msg: "All fields are required" }, { status: 400 });
     }
-    const testimonial = await Testimonial.create({ name, image, text, rating, is_active: 1 });
+    const image = `https://avatar.iran.liara.run/public/${Math.floor(Math.random() * 100) + 1}`;
+    const testimonial = await Testimonial.create({ name, image, text, rating, status: "pending", is_active: 1 });
     return NextResponse.json({ success: true, data: testimonial });
   } catch (error) {
     console.error("TESTIMONIAL POST ERROR:", error);
@@ -34,6 +46,7 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
+  if (!verifyAdmin(req)) return NextResponse.json({ msg: "Unauthorized" }, { status: 401 });
   try {
     const body = await req.json();
     const { id, ...updateData } = body;
@@ -45,6 +58,7 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
+  if (!verifyAdmin(req)) return NextResponse.json({ msg: "Unauthorized" }, { status: 401 });
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");

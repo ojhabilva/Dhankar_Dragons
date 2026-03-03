@@ -32,23 +32,24 @@ export default function BookingPopup({ open, onClose, service }) {
         <form className="space-y-4">
           <input
             placeholder="Your Name"
-            className="w-full bg-transparent border-b border-white outline-none py-1"
+            className="w-full bg-white/20 border-b border-white outline-none py-2 px-2 placeholder-white/80"
           />
 
           <input
             type="email"
             placeholder="E-Mail"
-            className="w-full bg-transparent border-b border-white outline-none py-1"
+            className="w-full bg-white/20 border-b border-white outline-none py-2 px-2 placeholder-white/80"
           />
 
           <input
             placeholder="Phone No."
-            className="w-full bg-transparent border-b border-white outline-none py-1"
+            className="w-full bg-white/20 border-b border-white outline-none py-2 px-2 placeholder-white/80"
           />
 
           <input
             type="date"
-            className="w-full bg-transparent border-b border-white outline-none py-1"
+            placeholder="Select a date"
+            className="w-full bg-white/20 border-b border-white outline-none py-2 px-2 placeholder-white/80"
           />
 
           <button

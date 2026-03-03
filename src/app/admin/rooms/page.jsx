@@ -7,11 +7,15 @@ export default function AdminRoomsPage() {
     const [rooms, setRooms] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editingId, setEditingId] = useState(null);
+    const [uploading, setUploading] = useState({ image: false, wash_image: false });
+    const [imagePreviews, setImagePreviews] = useState({ image: "", wash_image: "" });
     const [formData, setFormData] = useState({
-        name: "",
         slug: "",
+        name: "",
         image: "",
-        capacity: "2 Adult + 1 Child",
+        wash_image: "",
+        adults: "2",
+        children: "1",
         is_active: 1
     });
 
@@ -21,31 +25,21 @@ export default function AdminRoomsPage() {
 
     const fetchRooms = async () => {
         const apiUrl = "/api/rooms";
-        console.log(`[RoomsPage] Fetching rooms from: ${window.location.origin}${apiUrl}`);
-
         try {
             const res = await fetch(apiUrl, {
                 headers: { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` }
             });
-
-            console.log(`[RoomsPage] Response status: ${res.status} ${res.statusText}`);
-
             if (!res.ok) {
                 const errorData = await res.json().catch(() => ({ msg: "Could not parse error response" }));
-                console.error("[RoomsPage] API Error:", errorData);
                 throw new Error(errorData.msg || `Server error: ${res.status}`);
             }
-
             const data = await res.json();
             if (Array.isArray(data)) {
-                console.log(`[RoomsPage] Successfully fetched ${data.length} rooms`);
                 setRooms(data);
             } else {
-                console.error("[RoomsPage] Data is not an array:", data);
                 setRooms([]);
             }
         } catch (error) {
-            console.error("[RoomsPage] Fetch failure:", error);
             if (error instanceof TypeError && error.message === "Failed to fetch") {
                 toast.error("Network error: Check if the server is running and accessible");
             } else {
@@ -57,10 +51,53 @@ export default function AdminRoomsPage() {
         }
     };
 
+    const handleFileUpload = async (e, field) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const previewUrl = URL.createObjectURL(file);
+        setImagePreviews(prev => ({ ...prev, [field]: previewUrl }));
+        setUploading(prev => ({ ...prev, [field]: true }));
+
+        try {
+            const uploadData = new FormData();
+            uploadData.append("file", file);
+
+            const res = await fetch("/api/upload", {
+                method: "POST",
+                body: uploadData,
+            });
+
+            const result = await res.json();
+            if (result.success) {
+                setFormData(prev => ({ ...prev, [field]: result.path }));
+                toast.success(`${field === "image" ? "Room" : "Washroom"} image uploaded!`);
+            } else {
+                toast.error("Upload failed");
+                setImagePreviews(prev => ({ ...prev, [field]: "" }));
+            }
+        } catch (error) {
+            toast.error("Upload failed");
+            setImagePreviews(prev => ({ ...prev, [field]: "" }));
+        } finally {
+            setUploading(prev => ({ ...prev, [field]: false }));
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const capacity = `${formData.adults} Adult + ${formData.children} Child`;
+        const submitData = {
+            name: formData.name,
+            slug: formData.slug,
+            image: formData.image,
+            wash_image: formData.wash_image,
+            capacity,
+            is_active: formData.is_active,
+        };
+
         const method = editingId ? "PUT" : "POST";
-        const body = editingId ? { ...formData, id: editingId } : formData;
+        const body = editingId ? { ...submitData, id: editingId } : submitData;
 
         try {
             const res = await fetch("/api/rooms", {
@@ -74,13 +111,39 @@ export default function AdminRoomsPage() {
 
             if (res.ok) {
                 toast.success(editingId ? "Updated!" : "Created!");
-                setFormData({ name: "", slug: "", image: "", capacity: "2 Adult + 1 Child", is_active: 1 });
-                setEditingId(null);
+                resetForm();
                 fetchRooms();
             }
         } catch (error) {
             toast.error("Failed to save");
         }
+    };
+
+    const resetForm = () => {
+        setFormData({ slug: "", name: "", image: "", wash_image: "", adults: "2", children: "1", is_active: 1 });
+        setEditingId(null);
+        setImagePreviews({ image: "", wash_image: "" });
+    };
+
+    const startEditing = (room) => {
+        const capacityMatch = room.capacity?.match(/(\d+)\s*Adult\s*\+\s*(\d+)\s*Child/i);
+        const adults = capacityMatch ? capacityMatch[1] : "2";
+        const children = capacityMatch ? capacityMatch[2] : "1";
+
+        setEditingId(room.id);
+        setFormData({
+            slug: room.slug,
+            name: room.name,
+            image: room.image,
+            wash_image: room.wash_image || "",
+            adults,
+            children,
+            is_active: room.is_active,
+        });
+        setImagePreviews({
+            image: room.image || "",
+            wash_image: room.wash_image || "",
+        });
     };
 
     const handleDelete = async (id) => {
@@ -99,10 +162,46 @@ export default function AdminRoomsPage() {
         }
     };
 
+    const UploadBox = ({ label, field, icon }) => (
+        <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">{label}</label>
+            <label className="flex flex-col items-center justify-center w-full h-36 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-[#153e64] hover:bg-blue-50/30 transition-all group">
+                {uploading[field] ? (
+                    <div className="flex flex-col items-center gap-2">
+                        <div className="w-6 h-6 border-2 border-[#153e64] border-t-transparent rounded-full animate-spin" />
+                        <span className="text-xs text-gray-500">Uploading...</span>
+                    </div>
+                ) : imagePreviews[field] ? (
+                    <div className="relative w-full h-full p-2">
+                        <img
+                            src={imagePreviews[field]}
+                            alt={label}
+                            className="w-full h-full object-cover rounded-lg"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                            <span className="text-white text-xs font-semibold">Change Image</span>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="flex flex-col items-center gap-2 text-gray-400 group-hover:text-[#153e64] transition-colors">
+                        <span className="text-3xl">{icon}</span>
+                        <span className="text-xs font-medium">Click to upload</span>
+                    </div>
+                )}
+                <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => handleFileUpload(e, field)}
+                />
+            </label>
+        </div>
+    );
+
     return (
         <div className="space-y-8">
             <div>
-                <h1 className="text-3xl font-serif font-bold text-gray-800">Room Management</h1>
+                <h1 className="text-2xl md:text-3xl font-serif font-bold text-gray-800">Room Management</h1>
                 <p className="text-gray-500 italic">Manage your property's room types and availability.</p>
             </div>
 
@@ -110,25 +209,16 @@ export default function AdminRoomsPage() {
                 <div className="lg:col-span-1">
                     <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 space-y-6">
                         <h2 className="text-xl font-serif font-bold text-gray-800">{editingId ? "Edit Room" : "Add New Room"}</h2>
+
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Name</label>
-                            <input
-                                type="text"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Page (Slug)</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Type (Slug)</label>
                             <select
                                 value={formData.slug}
                                 onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64] bg-white text-gray-800"
+                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64] bg-gray-100 text-gray-800"
                                 required
                             >
-                                <option value="">-- Select a room page --</option>
+                                <option value="">-- Select room type --</option>
                                 <option value="standard-room">Standard Room → /rooms/standard-room</option>
                                 <option value="deluxe-room">Deluxe Room → /rooms/deluxe-room</option>
                                 <option value="super-deluxe-room">Super Deluxe Room → /rooms/super-deluxe-room</option>
@@ -139,26 +229,57 @@ export default function AdminRoomsPage() {
                                 </p>
                             )}
                         </div>
+
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Image URL</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Name</label>
                             <input
                                 type="text"
-                                value={formData.image}
-                                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+                                value={formData.name}
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
+                                placeholder="Enter room name"
                                 required
                             />
                         </div>
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Capacity</label>
-                            <input
-                                type="text"
-                                value={formData.capacity}
-                                onChange={(e) => setFormData({ ...formData, capacity: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
-                                required
-                            />
+
+                        <div className="grid grid-cols-2 gap-4">
+                            <UploadBox label="Inside Room" field="image" icon="🛏️" />
+                            <UploadBox label="Washroom" field="wash_image" icon="🚿" />
                         </div>
+
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-3">Room Capacity</label>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Adults</p>
+                                    <select
+                                        value={formData.adults}
+                                        onChange={(e) => setFormData({ ...formData, adults: e.target.value })}
+                                        className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64] bg-gray-100 text-gray-800"
+                                    >
+                                        {[...Array(9)].map((_, i) => (
+                                            <option key={`adult-${i + 1}`} value={String(i + 1)}>{i + 1}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div>
+                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Children</p>
+                                    <select
+                                        value={formData.children}
+                                        onChange={(e) => setFormData({ ...formData, children: e.target.value })}
+                                        className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64] bg-gray-100 text-gray-800"
+                                    >
+                                        {[...Array(10)].map((_, i) => (
+                                            <option key={`child-${i}`} value={String(i)}>{i}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                            <p className="text-xs text-gray-400 text-center mt-3">
+                                Capacity: <span className="font-semibold text-[#153e64]">{formData.adults} Adult + {formData.children} Child</span>
+                            </p>
+                        </div>
+
                         <div className="flex gap-4">
                             <button type="submit" className="flex-1 bg-[#153e64] text-white font-bold py-3 rounded-xl hover:bg-[#0d2a45] transition">
                                 {editingId ? "Update" : "Create"}
@@ -166,7 +287,7 @@ export default function AdminRoomsPage() {
                             {editingId && (
                                 <button
                                     type="button"
-                                    onClick={() => { setEditingId(null); setFormData({ name: "", slug: "", image: "", capacity: "2 Adult + 1 Child", is_active: 1 }); }}
+                                    onClick={resetForm}
                                     className="px-6 py-3 rounded-xl bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition"
                                 >
                                     Cancel
@@ -176,7 +297,7 @@ export default function AdminRoomsPage() {
                     </form>
                 </div>
 
-                <div className="lg:col-span-2 overflow-hidden bg-white rounded-3xl shadow-sm border border-gray-100">
+                <div className="lg:col-span-2 overflow-x-auto bg-white rounded-2xl md:rounded-3xl shadow-sm border border-gray-100">
                     <table className="w-full text-left">
                         <thead className="bg-gray-50 border-b">
                             <tr>
@@ -203,19 +324,23 @@ export default function AdminRoomsPage() {
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 text-sm text-gray-600">{room.capacity}</td>
-                                        <td className="px-6 py-4 text-right space-x-4">
-                                            <button
-                                                onClick={() => { setEditingId(room.id); setFormData({ name: room.name, slug: room.slug, image: room.image, capacity: room.capacity, is_active: room.is_active }); }}
-                                                className="text-[#153e64] font-bold hover:underline"
-                                            >
-                                                Edit
-                                            </button>
-                                            <button
-                                                onClick={() => handleDelete(room.id)}
-                                                className="text-red-600 font-bold hover:underline"
-                                            >
-                                                Delete
-                                            </button>
+                                        <td className="px-6 py-4 text-right">
+                                            <div className="flex items-center justify-end gap-3">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => startEditing(room)}
+                                                    className="relative z-10 px-3 py-1.5 text-[#153e64] font-bold hover:bg-blue-50 rounded-lg cursor-pointer transition"
+                                                >
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => handleDelete(room.id)}
+                                                    className="relative z-10 px-3 py-1.5 text-red-600 font-bold hover:bg-red-50 rounded-lg cursor-pointer transition"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))

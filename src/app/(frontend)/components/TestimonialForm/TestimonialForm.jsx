@@ -3,14 +3,15 @@
 import { useState } from "react";
 
 export default function TestimonialForm() {
+  const [name, setName] = useState("");
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
-  const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async () => {
-    if (!rating || !review) {
-      alert("Please add rating and review");
+    if (!name || !rating || !review) {
+      alert("Please fill in your name, rating, and review");
       return;
     }
 
@@ -20,10 +21,9 @@ export default function TestimonialForm() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: "Guest",
+        name,
         rating,
         text: review,
-        image: image || "",
       }),
     });
 
@@ -31,25 +31,39 @@ export default function TestimonialForm() {
     setLoading(false);
 
     if (data.success) {
-      alert("Review submitted successfully");
+      setSubmitted(true);
+      setName("");
       setRating(0);
       setReview("");
-      setImage(null);
+      setTimeout(() => setSubmitted(false), 5000);
     }
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-24 bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] p-10">
-      
-      {/* HEADER */}
+    <div className="max-w-4xl mt-12 md:mt-24 bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] p-5 md:p-10 mx-4 lg:mx-auto">
+
       <h2 className="text-gray-500 tracking-widest text-sm mb-6">
         WRITE A REVIEW
       </h2>
 
-      {/* TOP ROW */}
+      {submitted && (
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium">
+          ✅ Your review has been submitted for approval! It will appear on the website once approved by the admin.
+        </div>
+      )}
+
+      <div className="mb-6">
+        <label className="block mb-2 font-medium text-lg">Your Name:</label>
+        <input
+          type="text"
+          className="w-full border rounded-md p-4 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+
       <div className="flex justify-between items-start mb-8">
-        
-        {/* STAR RATING */}
         <div>
           <p className="text-gray-500 mb-2">Score:</p>
           <div className="flex gap-2">
@@ -57,56 +71,30 @@ export default function TestimonialForm() {
               <button
                 key={star}
                 onClick={() => setRating(star)}
-                className={`text-3xl transition ${
-                  rating >= star ? "text-yellow-400" : "text-gray-300"
-                }`}
+                className={`text-3xl transition ${rating >= star ? "text-yellow-400" : "text-gray-300"
+                  }`}
               >
                 ★
               </button>
             ))}
           </div>
         </div>
-
-        {/* IMAGE UPLOAD BOX */}
-        <label className="border-2 border-blue-400 rounded-md w-32 h-28 flex flex-col items-center justify-center cursor-pointer text-blue-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-10 h-10 mb-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 5h18M3 19h18M4 7h16v10H4z"
-            />
-          </svg>
-          <span className="text-sm">Upload</span>
-          <input
-            type="file"
-            hidden
-            onChange={(e) => setImage(e.target.files[0]?.name)}
-          />
-        </label>
       </div>
 
-      {/* REVIEW */}
       <label className="block mb-2 font-medium text-lg">
         Review:
       </label>
       <textarea
-        className="w-full border rounded-md p-4 mb-10 h-40 resize-none focus:outline-none focus:ring-2 focus:ring-blue-300"
+        className="w-full border rounded-md p-4 mb-10 h-40 resize-none bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
         placeholder="Excellent Service!!"
         value={review}
         onChange={(e) => setReview(e.target.value)}
       />
 
-      {/* ACTION BUTTONS */}
-      <div className="flex justify-between">
+      <div className="flex flex-col sm:flex-row justify-between gap-3">
         <button
           onClick={() => {
+            setName("");
             setRating(0);
             setReview("");
           }}

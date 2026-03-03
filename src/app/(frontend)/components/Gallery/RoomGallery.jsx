@@ -12,7 +12,7 @@ export default function RoomGallery({ title, images }) {
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 py-10">
-        <div className="relative h-[420px]">
+        <div className="relative h-[250px] sm:h-[350px] md:h-[420px]">
           <Image
             src={images[index]}
             fill

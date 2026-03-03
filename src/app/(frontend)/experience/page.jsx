@@ -35,7 +35,7 @@ export default function ExperienceSection() {
         <section className="bg-white">
 
             {/* HERO */}
-            <div className="relative w-full h-[70vh]">
+            <div className="relative w-full h-[45vh] md:h-[70vh]">
                 <Image
                     src="/Home page/experience/Firefly (1) 1.png"
                     alt="Spiti Valley"
@@ -147,7 +147,7 @@ export default function ExperienceSection() {
             />
 
             {/* CTA */}
-            <div className="bg-[#8b6a1e] text-white text-center py-10 mt-16">
+            <div className="bg-[#8b6a1e] text-white text-center py-8 md:py-10 mt-10 md:mt-16 px-4">
                 <p className="max-w-3xl mx-auto mb-6 text-sm md:text-base">
                     Contact us for day tours, multi-day itineraries, and customized
                     experiences across Spiti Valley.

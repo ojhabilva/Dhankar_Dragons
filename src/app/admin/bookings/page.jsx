@@ -78,7 +78,7 @@ export default function AdminBookingsPage() {
         <div className="space-y-8">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-serif font-bold text-gray-800">Bookings</h1>
+                    <h1 className="text-2xl md:text-3xl font-serif font-bold text-gray-800">Bookings</h1>
                     <p className="text-gray-500 italic">View and manage guest reservations.</p>
                 </div>
                 <div className="bg-[#153e64] text-white px-5 py-2 rounded-xl font-bold">
@@ -86,7 +86,7 @@ export default function AdminBookingsPage() {
                 </div>
             </div>
 
-            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="bg-white rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 overflow-hidden overflow-x-auto">
                 <table className="w-full text-left">
                     <thead className="bg-[#153e64] text-white">
                         <tr>

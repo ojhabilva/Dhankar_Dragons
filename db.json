@@ -2,26 +2,74 @@
   "testimonials": [
     {
       "id": 1,
-      "name": "Guest User",
-      "image": "https://avatar.iran.liara.run/public/1",
-      "text": "Welcome to Dhankhar Dragons! This is a mock testimonial.",
-      "rating": 5,
+      "name": "Test User",
+      "image": "https://avatar.iran.liara.run/public/84",
+      "text": "Great place to stay! Loved the view.",
+      "rating": 4,
+      "status": "approved",
       "is_active": 1,
-      "createdAt": "2026-02-23T17:21:38.043Z"
+      "createdAt": "2026-02-27T09:25:15.509Z",
+      "updatedAt": "2026-02-27T09:29:49.468Z"
     },
     {
       "id": 2,
-      "name": "Verified Admin",
-      "image": "https://avatar.iran.liara.run/public/1",
-      "text": "Admin panel is working perfectly!",
-      "rating": 5,
+      "name": "random",
+      "image": "https://avatar.iran.liara.run/public/72",
+      "text": "lorem ipsum",
+      "rating": 4,
+      "status": "approved",
       "is_active": 1,
-      "createdAt": "2026-02-24T10:56:54.323Z",
-      "updatedAt": "2026-02-24T10:56:54.323Z"
+      "createdAt": "2026-03-03T10:21:06.456Z",
+      "updatedAt": "2026-03-03T10:21:17.353Z"
     }
   ],
   "users": [],
-  "rooms": [],
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Standard Room",
+      "slug": "standard-room",
+      "image": "/uploads/rooms/1772536294062_Standard-Room-_13mb-5-1024x683.jpg",
+      "wash_image": "/uploads/rooms/1772536296062_Amorgos-Bathroom1-e1464285790281.jpg",
+      "capacity": "2 Adult + 0 Child",
+      "is_active": 1,
+      "createdAt": "2026-03-03T10:52:24.741Z",
+      "updatedAt": "2026-03-03T11:11:37.161Z"
+    },
+    {
+      "id": 2,
+      "name": "Deluxe Room",
+      "slug": "deluxe-room",
+      "image": "/uploads/rooms/1772536132452_BnBejia39-dlrv-1.webp",
+      "wash_image": "/uploads/rooms/1772536164500_istockphoto-1084656062-612x612.jpg",
+      "capacity": "2 Adult + 1 Child",
+      "is_active": 1,
+      "createdAt": "2026-03-03T11:09:26.092Z",
+      "updatedAt": "2026-03-03T11:09:26.092Z"
+    },
+    {
+      "id": 3,
+      "name": "Super Deluxe Room",
+      "slug": "super-deluxe-room",
+      "image": "/uploads/rooms/1772536219531_DSC05869__1_.jpg",
+      "wash_image": "/uploads/rooms/1772536237518_oindrilla-s.jpg",
+      "capacity": "2 Adult + 1 Child",
+      "is_active": 1,
+      "createdAt": "2026-03-03T11:10:39.102Z",
+      "updatedAt": "2026-03-03T11:10:39.102Z"
+    }
+  ],
   "bookings": [],
-  "packages": []
+  "packages": [
+    {
+      "id": 1,
+      "name": "Package 1",
+      "duration": "5 days 4 nights",
+      "price": "20000",
+      "image": "https://media.istockphoto.com/id/1535511484/photo/tv-cabinet-in-a-scandinavian-decor-living-room.jpg?s=612x612&w=0&k=20&c=mGtquet42E389LKmrGam7dWIAGDEZGF2N0M0FwZspFk=",
+      "is_active": 1,
+      "createdAt": "2026-03-03T10:19:31.264Z",
+      "updatedAt": "2026-03-03T10:19:31.264Z"
+    }
+  ]
 }

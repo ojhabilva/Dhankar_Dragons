@@ -92,7 +92,8 @@ export default function AdminPackagesPage() {
                                 type="text"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                placeholder="Enter package name"
                                 required
                             />
                         </div>
@@ -102,7 +103,8 @@ export default function AdminPackagesPage() {
                                 type="text"
                                 value={formData.duration}
                                 onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                placeholder="e.g. 5 Days / 4 Nights"
                                 required
                             />
                         </div>
@@ -112,7 +114,8 @@ export default function AdminPackagesPage() {
                                 type="number"
                                 value={formData.price}
                                 onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                placeholder="Enter price in ₹"
                                 required
                             />
                         </div>
@@ -122,7 +125,8 @@ export default function AdminPackagesPage() {
                                 type="text"
                                 value={formData.image}
                                 onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                                className="w-full px-4 py-2 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                placeholder="Enter image URL"
                                 required
                             />
                         </div>

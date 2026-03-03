@@ -1,10 +1,28 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    const fetchRooms = async () => {
+      try {
+        const res = await fetch("/api/rooms");
+        const data = await res.json();
+        if (Array.isArray(data)) setRooms(data.filter(r => r.is_active === 1));
+      } catch (e) {
+        console.error("Footer: failed to load rooms", e);
+      }
+    };
+    fetchRooms();
+  }, []);
+
   return (
-    <footer className="bg-[#915609] text-white mb-20">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <footer className="bg-[#915609] text-white pb-24 sm:pb-28">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
           {/* Logo Section (Clickable & Vertical) */}
@@ -42,21 +60,17 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-4">BOOKING</h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/regular" className="hover:underline">
-                  Regular Room
-                </Link>
-              </li>
-              <li>
-                <Link href="/deluxe" className="hover:underline">
-                  Deluxe Room
-                </Link>
-              </li>
-              <li>
-                <Link href="/super-deluxe" className="hover:underline">
-                  Super Deluxe Room
-                </Link>
-              </li>
+              {rooms.length > 0 ? (
+                rooms.map((room) => (
+                  <li key={room.id}>
+                    <Link href={`/rooms/${room.slug}`} className="hover:underline">
+                      {room.name}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li className="text-sm opacity-60">No rooms available</li>
+              )}
             </ul>
           </div>
 
@@ -67,7 +81,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/cancellation-policy" className="hover:underline">
+                <Link href="/privacy-policy" className="hover:underline">
                   Cancellation & Refund Policies
                 </Link>
               </li>

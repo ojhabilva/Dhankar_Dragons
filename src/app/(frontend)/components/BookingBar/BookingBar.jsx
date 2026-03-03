@@ -43,7 +43,7 @@ export default function BookingBar() {
     <>
       {/* FIXED BAR */}
       <div className="fixed bottom-0 left-0 w-full z-50 bg-[#e9e9e9] border-t">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-wrap gap-4 items-center justify-between relative">
+        <div className="max-w-7xl mx-auto px-3 md:px-4 py-3 md:py-4 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-stretch sm:items-center justify-between relative">
 
           {/* DATE */}
           <div

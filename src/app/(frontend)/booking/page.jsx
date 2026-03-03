@@ -67,13 +67,13 @@ function BookingForm() {
       <Toaster position="top-center" />
 
       {/* Header */}
-      <div className="bg-[#153e64] text-white py-12 text-center">
-        <h1 className="text-4xl font-serif font-bold">Book Your Stay</h1>
+      <div className="bg-[#153e64] text-white py-8 md:py-12 text-center px-4">
+        <h1 className="text-2xl md:text-4xl font-serif font-bold">Book Your Stay</h1>
         <p className="text-white/70 mt-2 italic">Dhankhar Dragons — Spiti Valley</p>
       </div>
 
       <div className="max-w-3xl mx-auto px-4 py-10">
-        <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl md:rounded-3xl shadow-xl p-5 md:p-8 space-y-5 md:space-y-6">
 
           {/* Room Selection */}
           <div>
@@ -82,7 +82,7 @@ function BookingForm() {
               name="room_name"
               value={form.room_name}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64] bg-white text-gray-800"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64] bg-gray-100 text-gray-800"
               required
             >
               <option value="">-- Choose a room --</option>
@@ -102,7 +102,7 @@ function BookingForm() {
                 value={form.check_in}
                 onChange={handleChange}
                 min={new Date().toISOString().split("T")[0]}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
                 required
               />
             </div>
@@ -114,7 +114,7 @@ function BookingForm() {
                 value={form.check_out}
                 onChange={handleChange}
                 min={form.check_in || new Date().toISOString().split("T")[0]}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
                 required
               />
             </div>
@@ -129,7 +129,7 @@ function BookingForm() {
               value={form.guests}
               onChange={handleChange}
               placeholder="e.g. 2 Adults, 1 Child"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
             />
           </div>
 
@@ -148,7 +148,7 @@ function BookingForm() {
                 value={form.customer_name}
                 onChange={handleChange}
                 placeholder="Your full name"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
                 required
               />
             </div>
@@ -160,7 +160,7 @@ function BookingForm() {
                 value={form.customer_email}
                 onChange={handleChange}
                 placeholder="you@example.com"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
                 required
               />
             </div>
@@ -175,7 +175,7 @@ function BookingForm() {
                 value={form.customer_phone}
                 onChange={handleChange}
                 placeholder="+91 XXXXXXXXXX"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
                 required
               />
             </div>
@@ -187,7 +187,7 @@ function BookingForm() {
                 value={form.total_price}
                 onChange={handleChange}
                 placeholder="0"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
               />
             </div>
           </div>
@@ -201,7 +201,7 @@ function BookingForm() {
               onChange={handleChange}
               placeholder="Any dietary needs, accessibility requirements, etc."
               rows={4}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#153e64]"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#153e64]"
             />
           </div>
 

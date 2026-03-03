@@ -135,6 +135,7 @@ const sequelize = {
             image: "https://avatar.iran.liara.run/public/1",
             text: "Welcome to Dhankhar Dragons! This is a mock testimonial.",
             rating: 5,
+            status: "approved",
             is_active: 1,
             createdAt: new Date().toISOString()
           }

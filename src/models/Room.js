@@ -22,6 +22,10 @@ const Room = sequelize.define("rooms", {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    wash_image: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
     capacity: {
         type: DataTypes.STRING,
         allowNull: false,

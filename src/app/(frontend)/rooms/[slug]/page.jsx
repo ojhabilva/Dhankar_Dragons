@@ -39,7 +39,7 @@ export default async function RoomPage({ params }) {
       }
     ],
     inside: room.inside || [room.image],
-    wash: room.wash || [room.image],
+    wash: room.wash || (room.wash_image ? [room.wash_image] : [room.image]),
   };
 
   return (

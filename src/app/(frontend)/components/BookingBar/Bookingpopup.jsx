@@ -16,7 +16,7 @@ export default function BookingPopup({
 }) {
   return (
     <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
-      <div className="bg-white rounded-xl p-6 w-[95%] max-w-4xl">
+      <div className="bg-white rounded-xl p-4 md:p-6 w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto">
 
         {/* HEADER */}
         <div className="flex justify-between items-center mb-4">
@@ -24,7 +24,7 @@ export default function BookingPopup({
           <button onClick={onClose} className="text-xl">✕</button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
           {/* CALENDAR */}
           <DayPicker

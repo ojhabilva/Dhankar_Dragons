@@ -59,8 +59,8 @@ export default function AdminLoginPage() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#153e64] focus:border-transparent transition outline-none"
-                            placeholder="email"
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-[#153e64] focus:border-transparent transition outline-none"
+                            placeholder="Enter your email address"
                             required
                         />
                     </div>
@@ -71,8 +71,8 @@ export default function AdminLoginPage() {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#153e64] focus:border-transparent transition outline-none"
-                            placeholder="password"
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-[#153e64] focus:border-transparent transition outline-none"
+                            placeholder="Enter your password"
                             required
                         />
                     </div>
