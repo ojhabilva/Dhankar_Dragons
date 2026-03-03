@@ -71,5 +71,35 @@
       "createdAt": "2026-03-03T10:19:31.264Z",
       "updatedAt": "2026-03-03T10:19:31.264Z"
     }
-  ]
+  ],
+  "rental_services": [
+    {
+      "id": 1,
+      "type": "bike",
+      "about": "Our premium bike rental service offers an exceptional way to explore the mountains.\n\nOur fleet is meticulously maintained for safety and performance.\n\nBlending adventure with luxury hospitality standards.",
+      "image": "/uploads/rooms/1772538047615_ladakh-bike-rental.jpg",
+      "is_active": 1,
+      "createdAt": "2026-03-03T11:40:49.187Z",
+      "updatedAt": "2026-03-03T11:41:00.536Z"
+    },
+    {
+      "id": 2,
+      "type": "horse",
+      "about": "At our hotel, we curate experiences that celebrate the heritage and natural beauty of the mountains.\n\nEach pony is carefully selected, professionally trained, and maintained to the highest standards.\n\nBy partnering closely with the local community, we offer a rare opportunity to experience the mountains.",
+      "image": "/uploads/rooms/1772538091257_horseback.jpg",
+      "is_active": 1,
+      "createdAt": "2026-03-03T11:41:40.787Z",
+      "updatedAt": "2026-03-03T11:41:40.787Z"
+    },
+    {
+      "id": 3,
+      "type": "car",
+      "about": "Our luxury car rental service is designed to offer guests effortless mobility.\n\nEach vehicle in our fleet is carefully selected and impeccably maintained.\n\nBlending reliability with refined hospitality, our service ensures confidence.",
+      "image": "/uploads/rooms/1772538139400_happyeasyrides-self-drive-car-rentals-gaur-city-2-greater-noida-car-rental-for-self-driven-rjs29b721m.avif",
+      "is_active": 1,
+      "createdAt": "2026-03-03T11:42:20.818Z",
+      "updatedAt": "2026-03-03T11:42:20.818Z"
+    }
+  ],
+  "rental_bookings": []
 }

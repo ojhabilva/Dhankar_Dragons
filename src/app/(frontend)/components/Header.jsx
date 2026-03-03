@@ -76,6 +76,9 @@ export default function Navbar() {
             <Link href="/about" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition">
               About Us
             </Link>
+            <Link href="/contact" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+              Contact Us
+            </Link>
           </nav>
 
           {/* HAMBURGER */}
@@ -110,6 +113,9 @@ export default function Navbar() {
               <NavItem title="Packages" mobile />
               <Link href="/about" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition">
                 About Us
+              </Link>
+              <Link href="/contact" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+                Contact Us
               </Link>
             </nav>
           </aside>

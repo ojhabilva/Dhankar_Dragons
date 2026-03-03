@@ -171,7 +171,9 @@ const sequelize = {
           }
         ],
         bookings: [],
-        packages: []
+        packages: [],
+        rental_services: [],
+        rental_bookings: []
       });
     }
     console.log("JSON Mock DB Synced");

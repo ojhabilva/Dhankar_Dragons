@@ -61,7 +61,8 @@ export default function AdminLayout({ children }) {
         { name: "Testimonials", icon: "💬", path: "/admin/testimonials", title: "Testimonials" },
         { name: "Rooms", icon: "🏨", path: "/admin/rooms", title: "Rooms" },
         { name: "Packages", icon: "🎒", path: "/admin/packages", title: "Packages" },
-        { name: "Bookings", icon: "📅", path: "/admin/bookings", title: "Bookings" },
+        { name: "Rentals", icon: "🚲", path: "/admin/rentals", title: "Rental Services" },
+        { name: "Rental Bookings", icon: "📝", path: "/admin/rental-bookings", title: "Rental Bookings" },
     ];
 
     return (

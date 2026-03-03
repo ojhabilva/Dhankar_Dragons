@@ -182,15 +182,6 @@ export default function HomePage() {
                 <p className="text-gray-400 italic">No rooms available at the moment.</p>
               )}
             </div>
-            {!loading && rooms.length > 0 && (
-              <div className="flex justify-center -mt-4 relative z-10">
-                <Link href="/rooms/regular">
-                  <button className="bg-[#8B1C1C] hover:bg-[#6f1515] text-white px-8 py-3 rounded-lg font-bold text-lg tracking-wide transition shadow-lg">
-                    BOOK NOW
-                  </button>
-                </Link>
-              </div>
-            )}
           </div>
         </div>
       </section>

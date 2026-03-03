@@ -1,96 +1,106 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import BookingPopup from "../components/RideComponents/BookingPopup";
 import ConnectSection from "../components/RideComponents/connect";
 
 export default function RideServices() {
   const [open, setOpen] = useState(false);
-  const [service, setService] = useState("");
+  const [selectedService, setSelectedService] = useState(null);
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleOpen = (type) => {
-    setService(type);
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await fetch("/api/rentals");
+        const data = await res.json();
+        if (Array.isArray(data)) {
+          setServices(data.filter(s => s.is_active === 1));
+        }
+      } catch (error) {
+        console.error("Failed to fetch services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
+
+  const handleOpen = (service) => {
+    setSelectedService(service);
     setOpen(true);
   };
 
-  const services = [
-    {
-      title: "PONY RENTAL SERVICE",
-      img: "/Home page/Ride/hourse.png",
-      text: [
-        "At our hotel, we curate experiences that celebrate the heritage and natural beauty of the mountains.",
-        "Each pony is carefully selected, professionally trained, and maintained to the highest standards.",
-        "By partnering closely with the local community, we offer a rare opportunity to experience the mountains."
-      ],
-    },
-    {
-      title: "CAR RENTAL SERVICE",
-      img: "/Home page/Ride/car.png",
-      text: [
-        "Our luxury car rental service is designed to offer guests effortless mobility.",
-        "Each vehicle in our fleet is carefully selected and impeccably maintained.",
-        "Blending reliability with refined hospitality, our service ensures confidence."
-      ],
-    },
-    {
-      title: "BIKE RENTAL SERVICE",
-      img: "/Home page/Ride/bike.png",
-      text: [
-        "Our premium bike rental service offers an exceptional way to explore the mountains.",
-        "Our fleet is meticulously maintained for safety and performance.",
-        "Blending adventure with luxury hospitality standards."
-      ],
-    },
-  ];
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-[#153e64] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <>
-      {services.map((item, index) => (
-        <div key={index} className="max-w-6xl mx-auto py-12 border-b">
-          <h2 className="text-center font-serif text-xl mb-8">
-            {item.title}
-          </h2>
+      <div className="pt-24 md:pt-32 pb-12">
+        <h1 className="text-center font-serif text-3xl md:text-5xl text-[#153e64] mb-4">
+          RENTAL SERVICES
+        </h1>
+        <p className="text-center text-gray-500 max-w-2xl mx-auto px-4 italic">
+          Explore the serene mountains of Spiti with our curated rental options.
+        </p>
+      </div>
 
-          {/* CARD */}
-          <div className="grid md:grid-cols-2 gap-8 px-6 items-stretch">
-            
-            {/* IMAGE */}
-            <div className="relative w-full h-full min-h-[320px]">
-              <Image
-                src={item.img}
-                alt={item.title}
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
+      {services.length > 0 ? (
+        services.map((item, index) => (
+          <div key={item.id || index} className="max-w-6xl mx-auto py-12 border-b last:border-b-0">
+            <h2 className="text-center font-serif text-2xl mb-8 uppercase text-gray-800">
+              {item.type} RENTAL SERVICE
+            </h2>
 
-            {/* CONTENT */}
-            <div className="flex flex-col justify-between h-full text-sm text-gray-800">
-              <div className="space-y-4 leading-relaxed">
-                {item.text.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
+            {/* CARD */}
+            <div className="grid md:grid-cols-2 gap-10 px-6 items-center">
+
+              {/* IMAGE */}
+              <div className="relative w-full aspect-[4/3] md:h-[350px] overflow-hidden rounded-2xl shadow-lg">
+                <Image
+                  src={item.image}
+                  alt={item.type}
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                />
               </div>
 
-              {/* BUTTON – CONTENT SIDE */}
-              <div className="mt-6">
-                <button
-                  onClick={() => handleOpen(item.title)}
-                  className="bg-[#153e64] text-white px-8 py-2 rounded-md hover:bg-[#0f2e4a] transition"
-                >
-                  Book Now
-                </button>
+              {/* CONTENT */}
+              <div className="flex flex-col justify-between h-full">
+                <div className="space-y-4 text-gray-600 leading-relaxed whitespace-pre-line text-base">
+                  <p>{item.about}</p>
+                </div>
+
+                {/* BUTTON */}
+                <div className="mt-8">
+                  <button
+                    onClick={() => handleOpen(item)}
+                    className="bg-[#153e64] text-white px-10 py-3 rounded-xl hover:bg-[#0f2e4a] transition-all transform hover:-translate-y-0.5 shadow-md font-bold"
+                  >
+                    Book Now
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+        ))
+      ) : (
+        <div className="py-32 text-center">
+          <p className="text-gray-400 italic text-xl">No rental services available right now.</p>
         </div>
-      ))}
+      )}
 
       {/* POPUP */}
       <BookingPopup
         open={open}
         onClose={() => setOpen(false)}
-        service={service}
+        service={selectedService}
       />
 
       <ConnectSection />
