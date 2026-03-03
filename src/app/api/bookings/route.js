@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/config/database.js";
-import Booking from "@/models/Booking";
-
-await connectDB();
+import Booking from "@/models/Booking.js";
 
 export async function GET() {
     try {
+        await connectDB();
         const bookings = await Booking.findAll();
         return NextResponse.json(bookings);
     } catch (error) {

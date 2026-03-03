@@ -4,12 +4,11 @@ export default function PolicyDetails() {
         <section className="bg-white py-12">
             <div className="max-w-5xl mx-auto px-6 text-gray-800">
 
-                {/* SECTION TITLE */}
+
                 <h2 className="text-2xl font-serif font-semibold text-center mb-8">
                     Policy Details
                 </h2>
 
-                {/* PRIVACY POLICY */}
                 <div className="mb-8">
                     <h3 className="font-semibold underline mb-3">
                         Privacy Policy
@@ -34,7 +33,6 @@ export default function PolicyDetails() {
                     </p>
                 </div>
 
-                {/* TERMS & CONDITIONS */}
                 <div className="mb-8">
                     <h3 className="font-semibold underline mb-3">
                         Terms & Conditions
@@ -69,7 +67,6 @@ export default function PolicyDetails() {
                     </ul>
                 </div>
 
-                {/* CANCELLATION POLICY */}
                 <div>
                     <h3 className="font-semibold underline mb-3">
                         Room Cancellation Policy

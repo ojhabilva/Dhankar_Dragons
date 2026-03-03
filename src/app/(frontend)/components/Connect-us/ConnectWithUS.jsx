@@ -9,10 +9,9 @@ export default function Connect() {
           CONNECT WITH US
         </h2>
 
-        {/* Social Links */}
+
         <div className="flex gap-4">
 
-          {/* Facebook */}
           <Link
             href="https://www.facebook.com/"
             target="_blank"
@@ -22,7 +21,6 @@ export default function Connect() {
             <img src="/Home page/icons/facebook-color-svgrepo-com 1.svg" alt="Facebook" className="w-9" />
           </Link>
 
-          {/* Instagram */}
           <Link
             href="https://www.instagram.com/"
             target="_blank"
@@ -32,7 +30,6 @@ export default function Connect() {
             <img src="/Home page/icons/instagram-1-svgrepo-com 1.svg" alt="Instagram" className="w-9" />
           </Link>
 
-          {/* WhatsApp */}
           <Link
             href="https://wa.me/910000000000"
             target="_blank"

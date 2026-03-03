@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
-import Testimonial from "@/models/testimonial.model";
+import Testimonial from "@/models/testimonial.model.js";
 import { connectDB } from "@/config/database.js";
-import { verifyAdmin } from "@/utils/auth";
-
-await connectDB();
+import { verifyAdmin } from "@/utils/auth.js";
 
 export async function GET(req) {
   try {
+    await connectDB();
     const { searchParams } = new URL(req.url);
     const all = searchParams.get("all");
 

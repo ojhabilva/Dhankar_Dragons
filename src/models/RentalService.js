@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/database";
+import sequelize from "../config/database.js";
 
 const RentalService = sequelize.define("rental_services", {
     id: {
@@ -8,7 +8,7 @@ const RentalService = sequelize.define("rental_services", {
         primaryKey: true,
     },
     type: {
-        type: DataTypes.STRING, // bike, horse, car
+        type: DataTypes.STRING,
         allowNull: false,
     },
     about: {

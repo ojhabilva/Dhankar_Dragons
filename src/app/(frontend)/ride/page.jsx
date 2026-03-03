@@ -58,10 +58,8 @@ export default function RideServices() {
               {item.type} RENTAL SERVICE
             </h2>
 
-            {/* CARD */}
             <div className="grid md:grid-cols-2 gap-10 px-6 items-center">
 
-              {/* IMAGE */}
               <div className="relative w-full aspect-[4/3] md:h-[350px] overflow-hidden rounded-2xl shadow-lg">
                 <Image
                   src={item.image}
@@ -71,13 +69,11 @@ export default function RideServices() {
                 />
               </div>
 
-              {/* CONTENT */}
               <div className="flex flex-col justify-between h-full">
                 <div className="space-y-4 text-gray-600 leading-relaxed whitespace-pre-line text-base">
                   <p>{item.about}</p>
                 </div>
 
-                {/* BUTTON */}
                 <div className="mt-8">
                   <button
                     onClick={() => handleOpen(item)}
@@ -96,7 +92,6 @@ export default function RideServices() {
         </div>
       )}
 
-      {/* POPUP */}
       <BookingPopup
         open={open}
         onClose={() => setOpen(false)}

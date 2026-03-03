@@ -1,25 +1,26 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/config/database.js";
-import RentalBooking from "@/models/RentalBooking";
-import RentalService from "@/models/RentalService";
+import RentalBooking from "@/models/RentalBooking.js";
+import RentalService from "@/models/RentalService.js";
 
 export async function GET() {
     await connectDB();
     try {
-        const bookings = await RentalBooking.findAll();
+        const bookings = await RentalBooking.findAll({ order: [['id', 'DESC']] });
         const services = await RentalService.findAll();
 
-        // Enrich bookings with service details
         const enrichedBookings = bookings.map(booking => {
-            const service = services.find(s => s.id == booking.rental_service_id);
+            const plainBooking = booking.get({ plain: true });
+            const service = services.find(s => s.id == plainBooking.rental_service_id);
             return {
-                ...booking,
+                ...plainBooking,
                 service_type: service ? service.type : "Unknown"
             };
         });
 
         return NextResponse.json(enrichedBookings);
     } catch (error) {
+        console.error("RENTAL BOOKINGS GET ERROR:", error);
         return NextResponse.json({ msg: "Server Error" }, { status: 500 });
     }
 }
@@ -31,6 +32,7 @@ export async function POST(req) {
         const newBooking = await RentalBooking.create(body);
         return NextResponse.json(newBooking);
     } catch (error) {
+        console.error("RENTAL BOOKINGS POST ERROR:", error);
         return NextResponse.json({ msg: "Server Error" }, { status: 500 });
     }
 }
@@ -43,7 +45,8 @@ export async function PUT(req) {
         await RentalBooking.update(updateData, { where: { id } });
         return NextResponse.json({ success: true });
     } catch (error) {
-        return NextResponse.json({ msg: "Server Error" }, { status: 500 });
+        console.error("RENTAL BOOKINGS PUT ERROR:", error);
+        return NextResponse.json({ msg: "Server Error", error: error.message }, { status: 500 });
     }
 }
 
@@ -55,6 +58,7 @@ export async function DELETE(req) {
         await RentalBooking.destroy({ where: { id } });
         return NextResponse.json({ success: true });
     } catch (error) {
+        console.error("RENTAL BOOKINGS DELETE ERROR:", error);
         return NextResponse.json({ msg: "Server Error" }, { status: 500 });
     }
 }

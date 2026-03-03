@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 const STATUS_OPTIONS = [
     { value: "in_enquiry", label: "In Enquiry", bg: "bg-blue-100", text: "text-blue-700" },
     { value: "processed", label: "Processed", bg: "bg-green-100", text: "text-green-700" },
+    { value: "approved", label: "Approved", bg: "bg-green-100", text: "text-green-800" },
     { value: "rejected", label: "Rejected", bg: "bg-red-100", text: "text-red-700" },
     { value: "pending", label: "Pending", bg: "bg-yellow-100", text: "text-yellow-700" },
     { value: "confirmed", label: "Confirmed", bg: "bg-green-100", text: "text-green-700" },

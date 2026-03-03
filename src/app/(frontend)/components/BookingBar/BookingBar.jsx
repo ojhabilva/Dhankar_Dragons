@@ -41,11 +41,10 @@ export default function BookingBar() {
 
   return (
     <>
-      {/* FIXED BAR */}
+
       <div className="fixed bottom-0 left-0 w-full z-50 bg-[#e9e9e9] border-t">
         <div className="max-w-7xl mx-auto px-3 md:px-4 py-3 md:py-4 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-stretch sm:items-center justify-between relative">
 
-          {/* DATE */}
           <div
             onClick={() => { setPopupOpen(true); setRoomMenuOpen(false); }}
             className="flex items-center gap-3 bg-white px-4 py-2 rounded cursor-pointer"
@@ -61,7 +60,6 @@ export default function BookingBar() {
             </div>
           </div>
 
-          {/* GUESTS */}
           <div
             onClick={() => { setPopupOpen(true); setRoomMenuOpen(false); }}
             className="bg-white px-4 py-2 rounded cursor-pointer"
@@ -72,7 +70,6 @@ export default function BookingBar() {
             </p>
           </div>
 
-          {/* BOOK NOW */}
           <div className="relative">
             <button
               onClick={() => { setRoomMenuOpen(!roomMenuOpen); setPopupOpen(false); }}
@@ -81,7 +78,6 @@ export default function BookingBar() {
               BOOK NOW
             </button>
 
-            {/* ROOM OPTIONS (Dynamic) */}
             {roomMenuOpen && (
               <div className="absolute right-0 bottom-14 w-64 bg-white rounded-xl shadow-xl overflow-hidden">
                 {rooms.length > 0 ? (
@@ -101,7 +97,7 @@ export default function BookingBar() {
         </div>
       </div>
 
-      {/* CALENDAR + COUNTER POPUP */}
+
       {popupOpen && (
         <BookingPopup
           onClose={() => setPopupOpen(false)}

@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/config/database.js";
-import Package from "@/models/Package";
-
-await connectDB();
+import Package from "@/models/Package.js";
 
 export async function GET() {
     try {
+        await connectDB();
         const pkgs = await Package.findAll({ where: { is_active: 1 } });
         return NextResponse.json(pkgs);
     } catch (error) {

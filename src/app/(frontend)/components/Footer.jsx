@@ -25,13 +25,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
-          {/* Logo Section (Clickable & Vertical) */}
           <div>
             <Link
               href="/"
               className="flex flex-col items-start gap-3 group"
             >
-              {/* Logo Image */}
               <Image
                 src="/Home page/logo 1@2x.png"
                 alt="Dhankar Dragons Logo"
@@ -40,7 +38,6 @@ export default function Footer() {
                 className="object-contain group-hover:scale-105 transition"
               />
 
-              {/* Logo Text */}
               <div>
                 <Image
                   src="/Home page/dhankhar dragons.png"
@@ -56,7 +53,6 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Booking */}
           <div>
             <h4 className="font-semibold text-lg mb-4">BOOKING</h4>
             <ul className="space-y-2">
@@ -74,7 +70,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Terms & Policies */}
           <div>
             <h4 className="font-semibold text-lg mb-4">
               Terms & Condition
@@ -93,7 +88,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-semibold text-lg mb-4">CONTACT US</h4>
             <ul className="space-y-2">
@@ -113,7 +107,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className=" text-center text-sm ">
         © ALL Rights Reserved Dhankar Dragons 2026.
       </div>

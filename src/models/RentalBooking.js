@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/database";
+import sequelize from "../config/database.js";
 
 const RentalBooking = sequelize.define("rental_bookings", {
     id: {
@@ -31,7 +31,7 @@ const RentalBooking = sequelize.define("rental_bookings", {
         type: DataTypes.STRING,
         defaultValue: "pending",
         validate: {
-            isIn: [["pending", "confirmed", "cancelled"]],
+            isIn: [["pending", "confirmed", "cancelled", "approved", "rejected"]],
         },
     },
 });

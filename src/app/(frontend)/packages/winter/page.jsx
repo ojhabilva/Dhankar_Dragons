@@ -7,7 +7,6 @@ export default function SpitiLuxuryPackage() {
   return (
     <section className="bg-white">
 
-      {/* HERO */}
       <div className="relative h-[60vh] w-full">
         <Image
           src="/Home page/packages/winter/Firefly (1) 1.png"
@@ -16,7 +15,6 @@ export default function SpitiLuxuryPackage() {
           className="object-cover"
         />
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/30 flex items-start">
           <div className="mt-16 ml-10 bg-white/80 px-6 py-4">
             <h2 className="text-xl font-serif uppercase tracking-wide">
@@ -27,7 +25,6 @@ export default function SpitiLuxuryPackage() {
         </div>
       </div>
 
-      {/* PACKAGE INTRO */}
       <div className="max-w-6xl mx-auto px-6 py-10 text-center">
         <h2 className="text-2xl font-serif font-semibold">
           Spiti Valley Luxury Explorer: 6 Nights / 7 Days
@@ -41,7 +38,6 @@ export default function SpitiLuxuryPackage() {
         </p>
       </div>
 
-      {/* ITINERARY TITLE */}
       <h3 className="text-center text-xl font-serif font-semibold mb-6">
         ITINERARY DETAILS:
         <br />
@@ -50,7 +46,6 @@ export default function SpitiLuxuryPackage() {
         </span>
       </h3>
 
-      {/* IMAGE GRID */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-6 mb-10">
         {[
           "water.png",
@@ -71,10 +66,8 @@ export default function SpitiLuxuryPackage() {
         ))}
       </div>
 
-      {/* DAY-WISE ITINERARY */}
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
 
-        {/* LEFT TEXT */}
         <div className="text-sm text-gray-800 space-y-5 leading-relaxed">
           <p><strong>Day 1:</strong><br />
             Arrival in Kaza (via Shimla or Manali). Check-in and rest for
@@ -106,7 +99,6 @@ export default function SpitiLuxuryPackage() {
           </p>
         </div>
 
-        {/* RIGHT IMAGE */}
         <div className="relative h-[720px]">
           <Image
             src="/Home page/packages/winter/dhankar-village 1.png"
@@ -117,7 +109,6 @@ export default function SpitiLuxuryPackage() {
         </div>
       </div>
 
-      {/* TERMS */}
       <div className="max-w-6xl mx-auto px-6 mt-10 text-sm text-gray-700">
         <h4 className="font-semibold mb-2">Terms & Conditions:</h4>
         <ul className="list-disc ml-5 space-y-1">
@@ -129,7 +120,6 @@ export default function SpitiLuxuryPackage() {
         </ul>
       </div>
 
-      {/* CTA */}
       <div className="mt-12">
         <Link href="/booking">
           <button className="w-full bg-[#163e63] text-white py-4 text-lg font-semibold hover:bg-[#0f2e4a] transition">
@@ -137,7 +127,7 @@ export default function SpitiLuxuryPackage() {
           </button>
         </Link>
       </div>
-      <ConnectWithUs/>
+      <ConnectWithUs />
     </section>
   );
 }

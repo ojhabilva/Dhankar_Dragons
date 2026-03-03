@@ -18,7 +18,7 @@ export default function BookingPopup({
     <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
       <div className="bg-white rounded-xl p-4 md:p-6 w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto">
 
-        {/* HEADER */}
+
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">Select your stay</h2>
           <button onClick={onClose} className="text-xl">✕</button>
@@ -26,7 +26,6 @@ export default function BookingPopup({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
-          {/* CALENDAR */}
           <DayPicker
             mode="range"
             selected={dateRange}
@@ -35,7 +34,6 @@ export default function BookingPopup({
             disabled={{ before: new Date() }}
           />
 
-          {/* COUNTERS */}
           <div className="space-y-4">
             <Counter label="Rooms" value={rooms} setValue={setRooms} />
             <Counter label="Adults" value={adults} setValue={setAdults} />
@@ -43,7 +41,6 @@ export default function BookingPopup({
           </div>
         </div>
 
-        {/* FOOTER */}
         <div className="mt-6 flex justify-end gap-4">
           <button
             onClick={onClose}

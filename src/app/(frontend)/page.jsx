@@ -51,10 +51,9 @@ export default function HomePage() {
       <section className="Elevate Your Escape max-w-7xl mx-auto px-4 py-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-          {/* LEFT IMAGE */}
           <div className="w-full h-full">
             <Image
-              src={DanceImg}  // replace with your image
+              src={DanceImg}
               alt="Ladakh culture"
               width={700}
               height={900}
@@ -62,10 +61,8 @@ export default function HomePage() {
             />
           </div>
 
-          {/* RIGHT CONTENT */}
           <div className="flex flex-col gap-8">
 
-            {/* TEXT CONTENT */}
             <div>
               <h2 className="text-2xl md:text-4xl font-serif font-semibold mb-4">
                 Elevate Your Escape
@@ -79,7 +76,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* BOTTOM IMAGES */}
             <div className="grid grid-cols-2 gap-6">
               <Image
                 src={WorkImg1}
@@ -102,7 +98,6 @@ export default function HomePage() {
       </section>
       <section className=" enjoyHoliday   relative w-full py-5">
 
-        {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <Image
             src={BackgroungImg}
@@ -113,15 +108,12 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* Heading */}
         <h2 className="text-center text-3xl md:text-5xl font-semibold italic text-blue-900 mb-8 md:mb-16">
           Enjoy your Holidays
         </h2>
 
-        {/* Circular Images */}
         <div className="flex items-center justify-center gap-4 md:gap-14 flex-wrap px-4">
 
-          {/* Left Circle */}
           <div className="w-32 h-32 md:w-56 md:h-56 rounded-full border-4 border-white overflow-hidden">
             <Image
               src={Bike}
@@ -132,7 +124,6 @@ export default function HomePage() {
             />
           </div>
 
-          {/* Center Circle (Bigger) */}
           <div className="w-44 h-44 md:w-80 md:h-80 rounded-full border-4 border-white overflow-hidden">
             <Image
               src={Hourse}
@@ -143,7 +134,6 @@ export default function HomePage() {
             />
           </div>
 
-          {/* Right Circle */}
           <div className="w-32 h-32 md:w-56 md:h-56 rounded-full border-4 border-white overflow-hidden">
             <Image
               src={Car}
@@ -188,7 +178,6 @@ export default function HomePage() {
       <TestimonialSlider />
       <section className="relative w-full h-[350px] md:h-[500px] overflow-hidden">
 
-        {/* Background Image */}
         <Image
           src="/Home page/camera.jpg"
           alt="Connect with us"
@@ -197,19 +186,15 @@ export default function HomePage() {
           priority
         />
 
-        {/* Fade Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/60 to-transparent" />
 
-        {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-12">
           <h2 className="text-2xl font-serif mb-4">
             CONNECT WITH US
           </h2>
 
-          {/* Social Links */}
           <div className="flex gap-4">
 
-            {/* Facebook */}
             <Link
               href="https://www.facebook.com/"
               target="_blank"
@@ -219,7 +204,6 @@ export default function HomePage() {
               <img src="/Home page/icons/facebook-color-svgrepo-com 1.svg" alt="Facebook" className="w-9" />
             </Link>
 
-            {/* Instagram */}
             <Link
               href="https://www.instagram.com/"
               target="_blank"
@@ -229,7 +213,6 @@ export default function HomePage() {
               <img src="/Home page/icons/instagram-1-svgrepo-com 1.svg" alt="Instagram" className="w-9" />
             </Link>
 
-            {/* WhatsApp */}
             <Link
               href="https://wa.me/910000000000"
               target="_blank"

@@ -1,13 +1,12 @@
 import bcrypt from "bcryptjs";
-import User from "@/models/User";
-import { generateToken } from "@/utils/jwt";
+import User from "@/models/User.js";
+import { generateToken } from "@/utils/jwt.js";
 import { NextResponse } from "next/server";
 import { connectDB } from "@/config/database.js";
 
-await connectDB();
-
 export async function POST(req) {
   try {
+    await connectDB();
 
 
 

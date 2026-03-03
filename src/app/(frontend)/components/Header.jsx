@@ -32,7 +32,7 @@ export default function Navbar() {
       >
         <div className="h-16 max-w-7xl mx-auto px-4 flex items-center justify-between">
 
-          {/* LOGO */}
+
           <Link href="/" className="font-bold text-xl">
             <svg width="170" height="70" viewBox="0 0 172 90" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M64.3938 17.1914C64.3885 17.4776 64.384 17.7729 64.3806 18.077C64.7373 18.0913 65.097 18.1292 65.4596 18.1916C65.1259 17.9531 64.7226 17.604 64.3938 17.1914Z" fill="#861D1D" />
@@ -65,7 +65,7 @@ export default function Navbar() {
             </svg>
           </Link>
 
-          {/* DESKTOP MENU */}
+
           <nav className="hidden lg:flex items-center gap-8">
             <NavItem title="Stay" />
             <NavItem title="Ride" />
@@ -81,14 +81,14 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* HAMBURGER */}
+
           <button className="lg:hidden" onClick={() => setMenuOpen(true)}>
             ☰
           </button>
         </div>
       </header>
 
-      {/* MOBILE SIDEBAR */}
+
       {menuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div

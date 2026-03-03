@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/config/database.js";
-import RentalService from "@/models/RentalService";
+import RentalService from "@/models/RentalService.js";
 
 export async function GET() {
     await connectDB();

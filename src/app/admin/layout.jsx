@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 export default function AdminLayout({ children }) {
     const router = useRouter();
     const pathname = usePathname();
     const [loading, setLoading] = useState(true);
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("adminToken");
@@ -32,10 +33,13 @@ export default function AdminLayout({ children }) {
     }, [pathname, router]);
 
     const handleLogout = () => {
-        const confirmed = window.confirm("Do you want to logout?");
-        if (!confirmed) return;
+        setShowLogoutModal(true);
+    };
+
+    const confirmLogout = () => {
         localStorage.removeItem("adminToken");
         localStorage.removeItem("adminUser");
+        toast.success("Logged out successfully");
         router.push("/admin/login");
     };
 
@@ -62,6 +66,7 @@ export default function AdminLayout({ children }) {
         { name: "Rooms", icon: "🏨", path: "/admin/rooms", title: "Rooms" },
         { name: "Packages", icon: "🎒", path: "/admin/packages", title: "Packages" },
         { name: "Rentals", icon: "🚲", path: "/admin/rentals", title: "Rental Services" },
+        { name: "Room Bookings", icon: "🛎️", path: "/admin/bookings", title: "Room Bookings" },
         { name: "Rental Bookings", icon: "📝", path: "/admin/rental-bookings", title: "Rental Bookings" },
     ];
 
@@ -69,7 +74,6 @@ export default function AdminLayout({ children }) {
         <div className="min-h-screen bg-[#f8f9fa] flex">
             <Toaster position="top-center" />
 
-            {/* Mobile overlay */}
             {sidebarOpen && (
                 <div
                     className="fixed inset-0 bg-black/40 z-40 lg:hidden"
@@ -98,7 +102,6 @@ export default function AdminLayout({ children }) {
                     ))}
                 </nav>
 
-                {/* Close button on mobile */}
                 <button
                     onClick={() => setSidebarOpen(false)}
                     className="lg:hidden p-4 text-white/70 hover:text-white text-center border-t border-white/10"
@@ -132,6 +135,37 @@ export default function AdminLayout({ children }) {
                     {children}
                 </main>
             </div>
+
+            {showLogoutModal && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                    <div
+                        className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300"
+                        onClick={() => setShowLogoutModal(false)}
+                    />
+                    <div className="relative bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full text-center animate-in zoom-in-95 duration-300 border border-gray-100">
+                        <div className="w-20 h-20 bg-red-50 text-red-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-6 shadow-inner ring-4 ring-red-50/50">
+                            👋
+                        </div>
+                        <h3 className="text-2xl font-serif font-bold text-gray-800 mb-2">Wait a moment!</h3>
+                        <p className="text-gray-500 mb-8 leading-relaxed">Are you sure you want to end your session? We'd hate to see you go!</p>
+
+                        <div className="flex flex-col gap-3">
+                            <button
+                                onClick={confirmLogout}
+                                className="w-full bg-[#153e64] hover:bg-[#0d2a44] text-white font-bold py-4 rounded-2xl transition-all shadow-lg active:scale-95"
+                            >
+                                Yes, Log Me Out
+                            </button>
+                            <button
+                                onClick={() => setShowLogoutModal(false)}
+                                className="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-4 rounded-2xl transition-all active:scale-95"
+                            >
+                                Stay Logged In
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

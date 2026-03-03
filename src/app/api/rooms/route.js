@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/config/database.js";
-import Room from "@/models/Room";
+import Room from "@/models/Room.js";
 
 export async function GET() {
     await connectDB();
@@ -8,6 +8,7 @@ export async function GET() {
         const rooms = await Room.findAll();
         return NextResponse.json(rooms);
     } catch (error) {
+        console.error("ROOMS GET ERROR:", error);
         return NextResponse.json({ msg: "Server Error" }, { status: 500 });
     }
 }

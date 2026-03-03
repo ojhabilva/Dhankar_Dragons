@@ -64,7 +64,7 @@ export default function AdminDashboardPage() {
                 <p className="text-gray-500 mt-1 italic">Welcome back to Dhankhar Dragons Admin.</p>
             </div>
 
-            {/* Stat Cards */}
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {statCards.map((stat) => (
                     <Link key={stat.name} href={stat.href}>
@@ -84,7 +84,6 @@ export default function AdminDashboardPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Recent Activity */}
                 <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
                     <h2 className="text-xl font-serif font-bold text-gray-800 mb-6">Recent Activity</h2>
                     <div className="space-y-4">
@@ -99,7 +98,6 @@ export default function AdminDashboardPage() {
                     </div>
                 </div>
 
-                {/* Quick Links */}
                 <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
                     <h2 className="text-xl font-serif font-bold text-gray-800 mb-6">Quick Links</h2>
                     <div className="grid grid-cols-2 gap-4">
