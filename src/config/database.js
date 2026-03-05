@@ -28,7 +28,7 @@ if (!global.sequelize) {
 }
 
 export const connectDB = async () => {
-  //
+  await sequelize.sync({ alter: true });
   return sequelize;
 };
 

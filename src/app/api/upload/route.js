@@ -11,10 +11,11 @@ export async function POST(req) {
             return NextResponse.json({ error: "No file provided" }, { status: 400 });
         }
 
+        const folder = formData.get("folder") || "rooms";
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        const uploadDir = path.join(process.cwd(), "public", "uploads", "rooms");
+        const uploadDir = path.join(process.cwd(), "public", "uploads", folder);
         await mkdir(uploadDir, { recursive: true });
 
         const timestamp = Date.now();
@@ -26,7 +27,7 @@ export async function POST(req) {
 
         return NextResponse.json({
             success: true,
-            path: `/uploads/rooms/${filename}`,
+            path: `/uploads/${folder}/${filename}`,
         });
     } catch (error) {
         console.error("Upload error:", error);

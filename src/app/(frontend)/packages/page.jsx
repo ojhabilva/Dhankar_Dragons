@@ -79,6 +79,9 @@ export default function PackagesPage() {
                                             alt={pkg.name}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
+                                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold text-[#8B1C1C] shadow-md">
+                                            ₹{pkg.price?.toLocaleString?.() || pkg.price}
+                                        </div>
                                     </div>
                                     <div className="p-6">
                                         <h3 className="text-xl font-serif font-bold text-gray-800">{pkg.name}</h3>
@@ -86,11 +89,18 @@ export default function PackagesPage() {
                                         {pkg.description && (
                                             <p className="text-sm text-gray-600 mt-3 line-clamp-2">{pkg.description}</p>
                                         )}
-                                        <Link href="/booking">
-                                            <button className="mt-5 w-full bg-[#153e64] hover:bg-[#0d2a45] text-white font-bold py-2.5 rounded-xl transition">
-                                                Book This Package
-                                            </button>
-                                        </Link>
+                                        <div className="flex gap-3 mt-5">
+                                            <Link href={`/packages/${pkg.id}`} className="flex-1">
+                                                <button className="w-full border-2 border-[#153e64] text-[#153e64] font-bold py-2.5 rounded-xl hover:bg-[#153e64] hover:text-white transition">
+                                                    View Details
+                                                </button>
+                                            </Link>
+                                            <Link href="/booking" className="flex-1">
+                                                <button className="w-full bg-[#8B1C1C] hover:bg-[#6f1515] text-white font-bold py-2.5 rounded-xl transition">
+                                                    Book Now
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -127,19 +137,16 @@ function PackageCard({ title, subtitle, duration, price, image, href, season }) 
                 <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold ${seasonColor}`}>
                     {season}
                 </div>
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold text-[#8B1C1C] shadow-md">
+                    {price}
+                </div>
             </div>
             <div className="p-6">
                 <p className="text-sm text-gray-500 italic mb-1">{subtitle}</p>
                 <h3 className="text-xl font-serif font-bold text-gray-800">{title}</h3>
-                <div className="flex items-center justify-between mt-4">
-                    <div>
-                        <p className="text-xs text-gray-400 uppercase tracking-wide">Duration</p>
-                        <p className="text-sm font-semibold text-gray-700">{duration}</p>
-                    </div>
-                    <div className="text-right">
-                        <p className="text-xs text-gray-400 uppercase tracking-wide">Starting From</p>
-                        <p className="text-sm font-semibold text-[#8B1C1C]">{price}</p>
-                    </div>
+                <div className="mt-4">
+                    <p className="text-xs text-gray-400 uppercase tracking-wide">Duration</p>
+                    <p className="text-sm font-semibold text-gray-700">{duration}</p>
                 </div>
                 <div className="flex gap-3 mt-5">
                     <Link href={href} className="flex-1">

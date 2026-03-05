@@ -15,6 +15,16 @@ const Package = sequelize.define("packages", {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    days: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 1
+    },
+    nights: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+    },
     price: {
         type: DataTypes.INTEGER,
         allowNull: false,
