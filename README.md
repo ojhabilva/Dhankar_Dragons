@@ -13,8 +13,7 @@ A full-stack hotel and tourism website for **Dhankhar Dragons**, located in Spit
 | Backend     | Next.js API Routes                            |
 | Database    | SQLite (via Sequelize ORM)                    |
 | Auth        | JWT (jsonwebtoken + bcryptjs)                 |
-| File Upload | Cloudinary                                    |
-| Email       | Nodemailer                                    |
+| File Upload | Local filesystem (`public/uploads/`)          |
 | Deployment  | Docker / Docker Compose                       |
 
 ---
