@@ -16,18 +16,12 @@ export default function AdminLayout({ children }) {
         const token = localStorage.getItem("adminToken");
         const isAdminUser = localStorage.getItem("adminUser");
 
-        console.log(`[AdminLayout] Path: ${pathname}`);
-        console.log(`[AdminLayout] Token: ${token ? "Present (Starts with " + token.substring(0, 10) + "...)" : "Missing"}`);
-        console.log(`[AdminLayout] User: ${isAdminUser ? "Present" : "Missing"}`);
 
         if (!token && pathname !== "/admin/login") {
-            console.log("[AdminLayout] Redirecting to /admin/login because token is missing");
             router.push("/admin/login");
         } else if (token && pathname === "/admin/login") {
-            console.log("[AdminLayout] Redirecting to /admin because token is present on login page");
             router.push("/admin");
         } else {
-            console.log("[AdminLayout] Authorization check passed");
             setLoading(false);
         }
     }, [pathname, router]);

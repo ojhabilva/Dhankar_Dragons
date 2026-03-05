@@ -5,7 +5,6 @@ import Image from "next/image";
 export default function Contact() {
     return (
         <section className="relative w-full h-[450px] md:h-[550px] overflow-hidden flex items-center mt-16 md:mt-24">
-            {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
                     src="/contact_bg.png"
@@ -14,11 +13,9 @@ export default function Contact() {
                     className="object-cover object-right md:object-center"
                     priority
                 />
-                {/* Warm Brown/Tan Gradient Overlay - matches the requested color vibe */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#b58145] via-[#b58145]/90 to-[#b58145]/10" />
             </div>
 
-            {/* Content Container */}
             <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full text-white">
                 <div className="max-w-xl space-y-8 animate-in fade-in slide-in-from-left-4 duration-1000">
                     <div className="space-y-4">
@@ -31,7 +28,6 @@ export default function Contact() {
                     </div>
 
                     <div className="space-y-6 pt-4">
-                        {/* Phone */}
                         <div className="flex items-center gap-5 group cursor-pointer transition-all">
                             <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md group-hover:bg-[#ff1493]/30 transition-all border border-white/30 shadow-lg">
                                 <svg className="w-7 h-7 text-[#ff1493] filter drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
@@ -48,7 +44,6 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        {/* Email */}
                         <div className="flex items-center gap-5 group cursor-pointer transition-all">
                             <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md group-hover:bg-[#a8a8ff]/30 transition-all border border-white/30 shadow-lg">
                                 <svg className="w-7 h-7 text-[#a8a8ff] filter drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">

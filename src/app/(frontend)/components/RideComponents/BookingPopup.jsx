@@ -44,16 +44,13 @@ export default function BookingPopup({ open, onClose, service }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
 
-      {/* Overlay */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Popup Box */}
       <div className="relative bg-[#8b1e1e] w-[95%] max-w-md p-8 text-white z-10 rounded-2xl shadow-2xl overflow-hidden border border-white/10">
 
-        {/* Close */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-2xl hover:scale-110 transition-transform"

@@ -66,7 +66,6 @@ function BookingForm() {
     <div className="bg-[#f5f5f0] min-h-screen pb-16">
       <Toaster position="top-center" />
 
-      {/* Header */}
       <div className="bg-[#153e64] text-white py-8 md:py-12 text-center px-4">
         <h1 className="text-2xl md:text-4xl font-serif font-bold">Book Your Stay</h1>
         <p className="text-white/70 mt-2 italic">Dhankhar Dragons — Spiti Valley</p>
@@ -75,7 +74,6 @@ function BookingForm() {
       <div className="max-w-3xl mx-auto px-4 py-10">
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl md:rounded-3xl shadow-xl p-5 md:p-8 space-y-5 md:space-y-6">
 
-          {/* Room Selection */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Select Room *</label>
             <select
@@ -92,7 +90,6 @@ function BookingForm() {
             </select>
           </div>
 
-          {/* Dates */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">Check-In Date *</label>
@@ -120,7 +117,6 @@ function BookingForm() {
             </div>
           </div>
 
-          {/* Guest Info */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Number of Guests</label>
             <input
@@ -133,12 +129,10 @@ function BookingForm() {
             />
           </div>
 
-          {/* Divider */}
           <div className="border-t pt-4">
             <h2 className="text-lg font-serif font-bold text-gray-700 mb-4">Your Details</h2>
           </div>
 
-          {/* Name + Email + Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
@@ -192,7 +186,6 @@ function BookingForm() {
             </div>
           </div>
 
-          {/* Special Requests */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Special Requests</label>
             <textarea
@@ -205,12 +198,10 @@ function BookingForm() {
             />
           </div>
 
-          {/* Notice */}
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-700">
             <strong>Note:</strong> This is a booking inquiry. Our team will contact you within 24 hours to confirm availability and finalize your stay.
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             disabled={loading}
@@ -222,7 +213,6 @@ function BookingForm() {
           </button>
         </form>
 
-        {/* Important Info */}
         <div className="mt-8 bg-white rounded-3xl shadow p-6 text-sm text-gray-600 space-y-2">
           <h3 className="font-semibold text-gray-800 mb-3">Important Information</h3>
           <p>✅ Unmarried couples are not allowed</p>

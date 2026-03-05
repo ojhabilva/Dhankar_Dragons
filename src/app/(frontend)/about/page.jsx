@@ -6,7 +6,6 @@ export default function AboutPage() {
   return (
     <main className="w-full overflow-hidden">
 
-      {/* ================= HERO SECTION ================= */}
       <section className="relative h-[50vh] md:h-[85vh] w-full">
         <Image
           src="/Home page/Hero image/Home.jpg"
@@ -16,10 +15,8 @@ export default function AboutPage() {
           priority
         />
 
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* Bottom text */}
         <div className="absolute inset-0 flex flex-col items-center justify-end text-white text-center pb-8 md:pb-8">
           <p className="uppercase tracking-widest text-sm mb-3">ABOUT</p>
 
@@ -34,7 +31,6 @@ export default function AboutPage() {
       </section>
 
 
-      {/* ================= ABOUT CONTENT ================= */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <p className="text-gray-700 leading-relaxed text-lg font-serif">
           Nestled in the serene landscape of Spiti Valley, Himachal Pradesh, our
@@ -59,7 +55,6 @@ export default function AboutPage() {
         />
       </section>
 
-      {/* ================= OUR MISSION ================= */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <Image
           src="/Home page/about/Firefly_A cinematic travel photograph of a solo female traveler sitting on the edge of a rock 524921 1.png"
@@ -80,10 +75,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= GET IN TOUCH ================= */}
       <section className="grid md:grid-cols-2">
 
-        {/* LEFT CONTENT */}
         <div className="bg-[#a6763b] text-white px-6 md:px-10 py-10 md:py-16 flex flex-col justify-center">
           <h3 className="text-3xl font-semibold mb-4">Get In Touch</h3>
           <p className="mb-8">
@@ -96,7 +89,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* RIGHT IMAGE WITH FADE */}
         <div className="relative w-full h-64 md:h-full min-h-[250px]">
           <Image
             src="/Home page/about/Firefly_A Ladakhi woman hotel receptionist receiving a phone call at the reception desk, wear 661804 1.png"
@@ -106,12 +98,10 @@ export default function AboutPage() {
             className="object-cover w-full h-full"
           />
 
-          {/* IMAGE FADE OVERLAY */}
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#a6763b]/40 to-[#a6763b]" />
         </div>
 
       </section>
-      {/* ================= TESTIMONIAL FORM ================= */}
       <TestimonialForm />
 
 

@@ -34,7 +34,6 @@ export default function ExperienceSection() {
     return (
         <section className="bg-white">
 
-            {/* HERO */}
             <div className="relative w-full h-[45vh] md:h-[70vh]">
                 <Image
                     src="/Home page/experience/Firefly (1) 1.png"
@@ -60,7 +59,6 @@ export default function ExperienceSection() {
                     </div>
                 </div>
             </div>
-            {/* SCENIC */}
             <SectionHeader title="Scenic Hotspots & Nature’s Wonders" />
 
             <ExperienceCard
@@ -81,7 +79,6 @@ export default function ExperienceSection() {
                 desc="Historical citadel perched above a lakefed river gorge, telling tales from centuries past."
             />
 
-            {/* CULTURE */}
             <SectionHeader title="Cultural & Heritage Experiences" />
 
             <ExperienceCard
@@ -96,7 +93,6 @@ export default function ExperienceSection() {
                 desc="Experience life in ancient Himalayan settlements where traditions thrive amidst stark landscapes."
             />
 
-            {/* ADVENTURE */}
             <SectionHeader title="Adventure Trails & Outdoor Activities" />
 
             <ExperienceCard
@@ -111,7 +107,6 @@ export default function ExperienceSection() {
                 desc="Experience exhilarating drives over rocky trails and mountain flats, with each turn revealing a new vista."
             />
 
-            {/* IMMERSIVE */}
             <SectionHeader title="Immersive Experiences" />
 
             <ExperienceCard
@@ -131,7 +126,6 @@ export default function ExperienceSection() {
                 desc="Meet Spitian artisans — witness wool weaving, traditional embroidery, and age-old craft styles."
             />
 
-            {/* CULINARY */}
             <SectionHeader title="Culinary & Evening Delights" />
 
             <ExperienceCard
@@ -146,7 +140,6 @@ export default function ExperienceSection() {
                 desc="Settle on a ridge with a warm drink, as the sun paints the snow-peaks in gold and crimson."
             />
 
-            {/* CTA */}
             <div className="bg-[#8b6a1e] text-white text-center py-8 md:py-10 mt-10 md:mt-16 px-4">
                 <p className="max-w-3xl mx-auto mb-6 text-sm md:text-base">
                     Contact us for day tours, multi-day itineraries, and customized

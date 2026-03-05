@@ -18,7 +18,6 @@ export default function PackagesPage() {
 
     return (
         <div className="bg-[#f5f5f0] min-h-screen">
-            {/* Hero */}
             <div className="relative h-[35vh] md:h-[50vh] w-full">
                 <Image
                     src="/Home page/packages/summer/Firefly (1) 1.png"
@@ -37,7 +36,6 @@ export default function PackagesPage() {
 
             <div className="max-w-7xl mx-auto px-4 py-16">
 
-                {/* Static Featured Packages */}
                 <div className="mb-12">
                     <h2 className="text-3xl font-serif font-bold text-[#153e64] mb-2">Featured Packages</h2>
                     <p className="text-gray-500 italic mb-8">Our most popular curated Spiti Valley journeys</p>
@@ -63,7 +61,6 @@ export default function PackagesPage() {
                     </div>
                 </div>
 
-                {/* Dynamic Packages from Admin */}
                 {loading ? (
                     <div className="text-center py-12 text-gray-400 italic">Loading packages...</div>
                 ) : packages.length > 0 ? (
@@ -108,7 +105,6 @@ export default function PackagesPage() {
                     </div>
                 ) : null}
 
-                {/* CTA */}
                 <div className="mt-12 md:mt-16 bg-[#153e64] rounded-2xl md:rounded-3xl p-6 md:p-10 text-center text-white">
                     <h2 className="text-3xl font-serif font-bold mb-3">Can't Find What You're Looking For?</h2>
                     <p className="text-white/70 mb-6">Contact us to create a custom itinerary tailored just for you.</p>

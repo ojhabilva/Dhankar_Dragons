@@ -10,25 +10,28 @@ const storage = path.isAbsolute(process.env.DB_STORAGE || './database.sqlite')
   ? process.env.DB_STORAGE
   : path.resolve(process.cwd(), process.env.DB_STORAGE || './database.sqlite');
 
-console.log(`[DB] Using storage: ${storage}`);
 
 let sequelize;
 
 if (!global.sequelize) {
-  console.log('[DB] Creating new Sequelize instance...');
   sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: storage,
     dialectModule: sqlite3,
-    logging: console.log,
+    logging: false,
   });
   global.sequelize = sequelize;
 } else {
   sequelize = global.sequelize;
 }
 
+let syncPromise = null;
+
 export const connectDB = async () => {
-  await sequelize.sync({ alter: true });
+  if (!syncPromise) {
+    syncPromise = sequelize.sync({ alter: true });
+  }
+  await syncPromise;
   return sequelize;
 };
 

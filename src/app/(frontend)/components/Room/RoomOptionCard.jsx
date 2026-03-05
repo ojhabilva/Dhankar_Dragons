@@ -12,7 +12,6 @@ export default function RoomOptionCard({ title, price, features }) {
   return (
     <div className="border bg-[#f3f5f1] shadow-sm p-4 sm:p-6 flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-6">
 
-      {/* LEFT CONTENT */}
       <div>
         <h3 className="text-lg sm:text-xl font-serif text-gray-800 font-semibold mb-3">
           {title}
@@ -25,7 +24,6 @@ export default function RoomOptionCard({ title, price, features }) {
         </ul>
       </div>
 
-      {/* RIGHT CONTENT */}
       <div className="text-left sm:text-right">
         <p className="text-2xl sm:text-3xl font-bold text-gray-900">₹ {price}</p>
         <p className="text-xs text-gray-600">+ taxes & fees</p>

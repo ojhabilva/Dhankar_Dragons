@@ -20,7 +20,6 @@ export default function Gallery() {
       <section className="flex justify-center py-6 md:py-10 px-2">
         <div className="w-full max-w-7xl bg-[#aab9bf] rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-xl flex flex-col md:flex-row gap-4 md:gap-8">
 
-          {/* Category Menu — horizontal scroll on mobile, vertical sidebar on desktop */}
           <div className="md:w-64 bg-[#6b818c] rounded-xl md:rounded-2xl p-3 md:p-6 flex-shrink-0">
             <h2 className="text-white text-2xl md:text-4xl mb-3 md:mb-8 font-semibold">
               Gallery
@@ -44,7 +43,6 @@ export default function Gallery() {
             </div>
           </div>
 
-          {/* Image Grid */}
           <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
             {galleryData[active].map((src, index) => (
               <div
@@ -66,13 +64,11 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* FULL SCREEN MODAL */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
           onClick={() => setSelectedImage(null)}
         >
-          {/* Close Button */}
           <button
             className="absolute top-6 right-6 text-white text-4xl font-bold"
             onClick={() => setSelectedImage(null)}
@@ -80,7 +76,6 @@ export default function Gallery() {
             ✕
           </button>
 
-          {/* Image */}
           <div className="relative w-full h-full max-w-5xl max-h-[90vh]">
             <Image
               src={selectedImage}

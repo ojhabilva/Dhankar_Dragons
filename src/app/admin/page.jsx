@@ -13,32 +13,35 @@ export default function AdminDashboardPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchStats = async () => {
+        const getCount = (data) => {
+            if (Array.isArray(data)) return data.length;
+            if (data && Array.isArray(data.data)) return data.data.length;
+            return 0;
+        };
+
+        const safeFetch = async (url, headers) => {
             try {
-                const headers = { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` };
-                const [tRes, rRes, bRes, pRes] = await Promise.all([
-                    fetch("/api/testimonials?all=true", { headers }),
-                    fetch("/api/rooms", { headers }),
-                    fetch("/api/bookings", { headers }),
-                    fetch("/api/packages", { headers }),
-                ]);
-
-                const tData = await tRes.json();
-                const rData = await rRes.json();
-                const bData = await bRes.json();
-                const pData = await pRes.json();
-
-                setStats({
-                    testimonials: tData.data ? tData.data.length : 0,
-                    rooms: Array.isArray(rData) ? rData.length : 0,
-                    bookings: Array.isArray(bData) ? bData.length : 0,
-                    packages: Array.isArray(pData) ? pData.length : 0,
-                });
-            } catch (error) {
-                console.error("Failed to fetch stats", error);
-            } finally {
-                setLoading(false);
+                const res = await fetch(url, { headers });
+                if (!res.ok) return 0;
+                const data = await res.json();
+                return getCount(data);
+            } catch {
+                return 0;
             }
+        };
+
+        const fetchStats = async () => {
+            const headers = { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` };
+
+            const [testimonials, rooms, bookings, packages] = await Promise.all([
+                safeFetch("/api/testimonials?all=true", headers),
+                safeFetch("/api/rooms", headers),
+                safeFetch("/api/bookings", headers),
+                safeFetch("/api/packages", headers),
+            ]);
+
+            setStats({ testimonials, rooms, bookings, packages });
+            setLoading(false);
         };
         fetchStats();
     }, []);
