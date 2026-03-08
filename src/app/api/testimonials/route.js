@@ -15,7 +15,7 @@ export async function GET(req) {
       if (!verifyAdmin(req)) {
         return NextResponse.json({ msg: "Unauthorized" }, { status: 401 });
       }
-      where = { is_active: 1 };
+      where = {};
     }
 
     const testimonials = await Testimonial.findAll({

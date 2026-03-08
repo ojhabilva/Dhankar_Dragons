@@ -6,6 +6,8 @@ import Booking from "./Booking.js";
 import RentalService from "./RentalService.js";
 import RentalBooking from "./RentalBooking.js";
 import Testimonial from "./testimonial.model.js";
+import GalleryImage from "./GalleryImage.js";
+import ContactSubmission from "./ContactSubmission.js";
 
 const models = {
     Room,
@@ -14,7 +16,9 @@ const models = {
     Booking,
     RentalService,
     RentalBooking,
-    Testimonial
+    Testimonial,
+    GalleryImage,
+    ContactSubmission
 };
 
 export {
@@ -25,7 +29,9 @@ export {
     Booking,
     RentalService,
     RentalBooking,
-    Testimonial
+    Testimonial,
+    GalleryImage,
+    ContactSubmission
 };
 
 export default models;
