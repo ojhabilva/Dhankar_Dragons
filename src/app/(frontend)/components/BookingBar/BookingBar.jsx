@@ -49,7 +49,7 @@ export default function BookingBar() {
             onClick={() => { setPopupOpen(true); setRoomMenuOpen(false); }}
             className="flex items-center gap-3 bg-white px-4 py-2 rounded cursor-pointer"
           >
-            <Image src="/Home page/icons/calendar-svgrepo-com 4.svg" alt="calendar" width={30} height={30} />
+            <Image src="/Home page/icons/calendar-svgrepo-com 4.svg" alt="calendar" width={30} height={30} title="Select check-in and check-out dates" />
             <div>
               <p className="text-xs text-gray-500">CHECK IN - CHECK OUT</p>
               <p className="font-semibold text-sm">
@@ -74,6 +74,7 @@ export default function BookingBar() {
             <button
               onClick={() => { setRoomMenuOpen(!roomMenuOpen); setPopupOpen(false); }}
               className="bg-[#8B1C1C] text-[#F4C430] font-bold px-8 py-3 rounded-full"
+              title="Book a room now"
             >
               BOOK NOW
             </button>

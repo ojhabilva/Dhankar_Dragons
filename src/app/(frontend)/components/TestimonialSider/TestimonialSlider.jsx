@@ -44,7 +44,7 @@ export default function TestimonialSlider() {
     <section className="bg-[#EAF3F8] pt-0 pb-0 relative overflow-hidden">
 
       <div className="bg-[#F4B24E] py-4 mb-12 relative z-20">
-        <h2 className="text-center text-3xl uppercase font-serif text-[#7A1F1F] tracking-wide">
+        <h2 className="text-center text-3xl uppercase font-serif text-[#7A1F1F] tracking-wide" title="Testimonial">
           Testimonial
         </h2>
       </div>

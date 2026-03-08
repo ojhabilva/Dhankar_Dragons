@@ -6,7 +6,7 @@ import ConnectWithUS from "../components/Connect-us/ConnectWithUS";
 
 const SectionHeader = ({ title }) => (
     <div className="bg-[#2f4f5f] text-white text-center py-3 my-8">
-        <h2 className="text-lg md:text-xl font-semibold tracking-wide">
+        <h2 className="text-lg md:text-xl font-semibold tracking-wide" title={title}>
             {title}
         </h2>
     </div>
@@ -23,7 +23,7 @@ const ExperienceCard = ({ img, title, desc }) => (
                 className="w-full h-auto object-cover"
             />
         </div>
-        <h3 className="text-[#c27a2c] font-semibold mt-4 text-lg">
+        <h3 className="text-[#c27a2c] font-semibold mt-4 text-lg" title={title}>
             {title}
         </h3>
         <p className="text-gray-700 text-sm mt-1">{desc}</p>
@@ -44,7 +44,7 @@ export default function ExperienceSection() {
 
                 <div className="absolute inset-0 bg-black/40 flex items-center">
                     <div className="px-8 md:px-16 text-white max-w-xl">
-                        <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+                        <h1 className="text-3xl md:text-5xl font-bold leading-tight" title="Experience Spiti Valley">
                             EXPERIENCE SPITI VALLEY <br />
                             <span className="text-lg md:text-xl font-light">
                                 DISCOVER BEYOND THE ROADS
@@ -145,8 +145,8 @@ export default function ExperienceSection() {
                     Contact us for day tours, multi-day itineraries, and customized
                     experiences across Spiti Valley.
                 </p>
-                <Link href="/booking">
-                    <button className="bg-[#153e64] hover:bg-[#0f2e4a] px-8 py-3 rounded-md text-lg font-semibold transition">
+                <Link href="/booking" title="Book an experience now">
+                    <button className="bg-[#153e64] hover:bg-[#0f2e4a] px-8 py-3 rounded-md text-lg font-semibold transition" title="Book Now">
                         Book Now
                     </button>
                 </Link>

@@ -81,7 +81,7 @@ export default function Gallery() {
         <div className="w-full max-w-7xl bg-[#aab9bf] rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-xl flex flex-col md:flex-row gap-4 md:gap-8">
 
           <div className="md:w-64 bg-[#6b818c] rounded-xl md:rounded-2xl p-3 md:p-6 flex-shrink-0">
-            <h2 className="text-white text-2xl md:text-4xl mb-3 md:mb-8 font-semibold">
+            <h2 className="text-white text-2xl md:text-4xl mb-3 md:mb-8 font-semibold" title="Gallery">
               Gallery
             </h2>
 
@@ -96,6 +96,7 @@ export default function Gallery() {
                       : "text-gray-200 hover:bg-[#5f7884]"
                     }
                   `}
+                  title={`View ${item.label} gallery`}
                 >
                   {item.label}
                 </button>
@@ -142,6 +143,7 @@ export default function Gallery() {
           <button
             className="absolute top-6 right-6 text-white text-4xl font-bold z-10 hover:text-gray-300 transition"
             onClick={closeLightbox}
+            title="Close lightbox"
           >
             ✕
           </button>
@@ -150,6 +152,7 @@ export default function Gallery() {
             <button
               className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/15 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-2xl transition"
               onClick={(e) => { e.stopPropagation(); goToPrev(); }}
+              title="Previous image"
             >
               ‹
             </button>
@@ -172,6 +175,7 @@ export default function Gallery() {
             <button
               className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/15 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-2xl transition"
               onClick={(e) => { e.stopPropagation(); goToNext(); }}
+              title="Next image"
             >
               ›
             </button>

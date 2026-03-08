@@ -54,7 +54,7 @@ export default function Contact() {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full text-white">
                     <div className="max-w-xl space-y-8 animate-in fade-in slide-in-from-left-4 duration-1000">
                         <div className="space-y-4">
-                            <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight drop-shadow-lg">
+                            <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight drop-shadow-lg" title="Get In Touch">
                                 Get In Touch
                             </h1>
                             <p className="text-lg md:text-xl opacity-95 font-medium leading-relaxed drop-shadow-sm max-w-md">
@@ -73,6 +73,7 @@ export default function Contact() {
                                     <a
                                         href="tel:+910000000000"
                                         className="text-2xl md:text-3xl font-bold hover:text-[#ff1493] transition-all tracking-tighter"
+                                        title="Call us at +91 00000 00000"
                                     >
                                         +91 00000 00000
                                     </a>
@@ -89,6 +90,7 @@ export default function Contact() {
                                     <a
                                         href="mailto:xyz@gmail.com"
                                         className="text-2xl md:text-3xl font-bold hover:text-[#a8a8ff] transition-all tracking-tighter"
+                                        title="Email us at xyz@gmail.com"
                                     >
                                         xyz@gmail.com
                                     </a>
@@ -101,7 +103,7 @@ export default function Contact() {
 
             <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 md:py-24">
                 <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
-                    <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-800 mb-2">Send Us a Message</h2>
+                    <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-800 mb-2" title="Send Us a Message">Send Us a Message</h2>
                     <p className="text-gray-500 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
 
                     <form onSubmit={handleSubmit} className="space-y-6">

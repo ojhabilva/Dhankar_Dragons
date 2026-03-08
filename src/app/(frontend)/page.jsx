@@ -64,7 +64,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-8">
 
             <div>
-              <h2 className="text-2xl md:text-4xl font-serif font-semibold mb-4">
+              <h2 className="text-2xl md:text-4xl font-serif font-semibold mb-4" title="Elevate Your Escape">
                 Elevate Your Escape
               </h2>
               <p className="text-gray-600 leading-relaxed">
@@ -108,7 +108,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        <h2 className="text-center text-3xl md:text-5xl font-semibold italic text-blue-900 mb-8 md:mb-16">
+        <h2 className="text-center text-3xl md:text-5xl font-semibold italic text-blue-900 mb-8 md:mb-16" title="Enjoy your Holidays">
           Enjoy your Holidays
         </h2>
 
@@ -150,7 +150,7 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-3 ">
         <div className="bg-white rounded-3xl shadow-xl p-8">
 
-          <h2 className="text-2xl md:text-4xl font-serif text-gray-500 mb-4 md:mb-8">
+          <h2 className="text-2xl md:text-4xl font-serif text-gray-500 mb-4 md:mb-8" title="Choose Your Room">
             CHOOSE YOUR ROOM
           </h2>
 
@@ -189,7 +189,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/60 to-transparent" />
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-12">
-          <h2 className="text-2xl font-serif mb-4">
+          <h2 className="text-2xl font-serif mb-4" title="Connect With Us">
             CONNECT WITH US
           </h2>
 
@@ -200,6 +200,7 @@ export default function HomePage() {
               target="_blank"
               aria-label="Facebook"
               className="hover:scale-110 transition"
+              title="Follow us on Facebook"
             >
               <img src="/Home page/icons/facebook-color-svgrepo-com 1.svg" alt="Facebook" className="w-9" />
             </Link>
@@ -209,6 +210,7 @@ export default function HomePage() {
               target="_blank"
               aria-label="Instagram"
               className="hover:scale-110 transition"
+              title="Follow us on Instagram"
             >
               <img src="/Home page/icons/instagram-1-svgrepo-com 1.svg" alt="Instagram" className="w-9" />
             </Link>
@@ -218,6 +220,7 @@ export default function HomePage() {
               target="_blank"
               aria-label="WhatsApp"
               className="hover:scale-110 transition"
+              title="Chat with us on WhatsApp"
             >
               <img src="/Home page/icons/whatsapp-whats-app-svgrepo-com 1.svg" alt="WhatsApp" className="w-9" />
             </Link>

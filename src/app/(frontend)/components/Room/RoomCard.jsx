@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function RoomCard({ slug, image, title, capacity }) {
   return (
-    <Link href={`/rooms/${slug}`} className="block group">
+    <Link href={`/rooms/${slug}`} className="block group" title={`View ${title} details`}>
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl group-hover:-translate-y-1">
 
         <div className="relative w-full h-[260px] overflow-hidden">
@@ -16,7 +16,7 @@ export default function RoomCard({ slug, image, title, capacity }) {
         </div>
 
         <div className="p-5">
-          <h3 className="text-2xl font-serif font-semibold text-gray-900 group-hover:text-[#8B1C1C] transition-colors">
+          <h3 className="text-2xl font-serif font-semibold text-gray-900 group-hover:text-[#8B1C1C] transition-colors" title={title}>
             {title}
           </h3>
           <p className="text-gray-500 text-sm mt-1">

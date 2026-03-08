@@ -29,6 +29,7 @@ export default function Footer() {
             <Link
               href="/"
               className="flex flex-col items-start gap-3 group"
+              title="Dhankar Dragons - Home"
             >
               <Image
                 src="/Home page/logo 1@2x.png"
@@ -54,12 +55,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg mb-4">BOOKING</h4>
+            <h4 className="font-semibold text-lg mb-4" title="Booking">BOOKING</h4>
             <ul className="space-y-2">
               {rooms.length > 0 ? (
                 rooms.map((room) => (
                   <li key={room.id}>
-                    <Link href={`/rooms/${room.slug}`} className="hover:underline">
+                    <Link href={`/rooms/${room.slug}`} className="hover:underline" title={`Book ${room.name}`}>
                       {room.name}
                     </Link>
                   </li>
@@ -71,17 +72,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg mb-4">
+            <h4 className="font-semibold text-lg mb-4" title="Terms & Condition">
               Terms & Condition
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/privacy-policy" className="hover:underline">
+                <Link href="/privacy-policy" className="hover:underline" title="Cancellation & Refund Policies">
                   Cancellation & Refund Policies
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="hover:underline">
+                <Link href="/privacy-policy" className="hover:underline" title="Privacy Policies">
                   Privacy Policies
                 </Link>
               </li>
@@ -89,15 +90,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg mb-4">CONTACT US</h4>
+            <h4 className="font-semibold text-lg mb-4" title="Contact Us">CONTACT US</h4>
             <ul className="space-y-2">
               <li>
-                <a href="tel:+910000000000" className="hover:underline">
+                <a href="tel:+910000000000" className="hover:underline" title="Call us at +91 0000 000 000">
                   +91 0000 000 000
                 </a>
               </li>
               <li>
-                <a href="mailto:xyz@gmail.com" className="hover:underline">
+                <a href="mailto:xyz@gmail.com" className="hover:underline" title="Email us at xyz@gmail.com">
                   xyz@gmail.com
                 </a>
               </li>

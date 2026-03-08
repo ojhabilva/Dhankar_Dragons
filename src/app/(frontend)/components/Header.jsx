@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="h-16 max-w-7xl mx-auto px-4 flex items-center justify-between">
 
 
-          <Link href="/" className="font-bold text-xl">
+          <Link href="/" className="font-bold text-xl" title="Dhankar Dragons - Home">
             <svg width="170" height="70" viewBox="0 0 172 90" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M64.3938 17.1914C64.3885 17.4776 64.384 17.7729 64.3806 18.077C64.7373 18.0913 65.097 18.1292 65.4596 18.1916C65.1259 17.9531 64.7226 17.604 64.3938 17.1914Z" fill="#861D1D" />
               <path d="M65.2523 26.1524C65.2523 26.1524 65.2547 26.1489 65.257 26.1475C65.257 26.1475 65.2573 26.1483 65.2579 26.1499C65.2579 26.1499 65.2547 26.1509 65.2523 26.1524Z" fill="#861D1D" />
@@ -69,20 +69,20 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-8">
             <NavItem title="Stay" />
             <NavItem title="Ride" />
-            <Link href="/experience" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+            <Link href="/experience" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition" title="Experience - Activities & Adventures">
               Experience
             </Link>
             <NavItem title="Packages" />
-            <Link href="/about" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+            <Link href="/about" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition" title="About Us - Dhankar Dragons">
               About Us
             </Link>
-            <Link href="/contact" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+            <Link href="/contact" className="text-gray-800 font-medium hover:text-[#8B1C1C] transition" title="Contact Us - Get In Touch">
               Contact Us
             </Link>
           </nav>
 
 
-          <button className="lg:hidden" onClick={() => setMenuOpen(true)}>
+          <button className="lg:hidden" onClick={() => setMenuOpen(true)} title="Open navigation menu">
             ☰
           </button>
         </div>
@@ -100,6 +100,7 @@ export default function Navbar() {
             <button
               className="absolute top-4 right-4 text-xl"
               onClick={() => setMenuOpen(false)}
+              title="Close navigation menu"
             >
               ✕
             </button>
@@ -107,14 +108,14 @@ export default function Navbar() {
             <nav className="mt-12 space-y-6">
               <NavItem title="Stay" mobile />
               <NavItem title="Ride" mobile />
-              <Link href="/experience" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+              <Link href="/experience" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition" title="Experience - Activities & Adventures">
                 Experience
               </Link>
               <NavItem title="Packages" mobile />
-              <Link href="/about" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+              <Link href="/about" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition" title="About Us - Dhankar Dragons">
                 About Us
               </Link>
-              <Link href="/contact" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition">
+              <Link href="/contact" onClick={() => setMenuOpen(false)} className="block text-gray-800 font-medium hover:text-[#8B1C1C] transition" title="Contact Us - Get In Touch">
                 Contact Us
               </Link>
             </nav>

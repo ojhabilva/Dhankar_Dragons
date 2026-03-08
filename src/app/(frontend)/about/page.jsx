@@ -65,7 +65,7 @@ export default function AboutPage() {
         />
 
         <div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">OUR MISSION</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6" title="Our Mission">OUR MISSION</h2>
           <p className="text-gray-700 text-lg leading-relaxed">
             To be a home for travelers from around the world seeking
             authenticity, comfort, and a sense of belonging. We are committed
@@ -78,7 +78,7 @@ export default function AboutPage() {
       <section className="grid md:grid-cols-2">
 
         <div className="bg-[#a6763b] text-white px-6 md:px-10 py-10 md:py-16 flex flex-col justify-center">
-          <h3 className="text-3xl font-semibold mb-4">Get In Touch</h3>
+          <h3 className="text-3xl font-semibold mb-4" title="Get In Touch">Get In Touch</h3>
           <p className="mb-8">
             Want to get in touch? We would love to hear from you.
           </p>

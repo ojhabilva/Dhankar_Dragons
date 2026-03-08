@@ -43,7 +43,7 @@ export default function RideServices() {
   return (
     <>
       <div className="pt-24 md:pt-32 pb-12">
-        <h1 className="text-center font-serif text-3xl md:text-5xl text-[#153e64] mb-4">
+        <h1 className="text-center font-serif text-3xl md:text-5xl text-[#153e64] mb-4" title="Rental Services">
           RENTAL SERVICES
         </h1>
         <p className="text-center text-gray-500 max-w-2xl mx-auto px-4 italic">
@@ -54,7 +54,7 @@ export default function RideServices() {
       {services.length > 0 ? (
         services.map((item, index) => (
           <div key={item.id || index} className="max-w-6xl mx-auto py-12 border-b last:border-b-0">
-            <h2 className="text-center font-serif text-2xl mb-8 uppercase text-gray-800">
+            <h2 className="text-center font-serif text-2xl mb-8 uppercase text-gray-800" title={`${item.type} Rental Service`}>
               {item.type} RENTAL SERVICE
             </h2>
 
@@ -78,6 +78,7 @@ export default function RideServices() {
                   <button
                     onClick={() => handleOpen(item)}
                     className="bg-[#153e64] text-white px-10 py-3 rounded-xl hover:bg-[#0f2e4a] transition-all transform hover:-translate-y-0.5 shadow-md font-bold"
+                    title={`Book ${item.type} ride`}
                   >
                     Book Now
                   </button>

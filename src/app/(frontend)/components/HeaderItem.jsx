@@ -31,6 +31,7 @@ export default function NavItem({ title, mobile }) {
         <button
           onClick={() => setOpen(!open)}
           className="w-full flex justify-between text-gray-800 font-medium hover:text-[#8B1C1C] transition"
+          title={title}
         >
           {title}
           <span className="text-lg">{open ? "−" : "+"}</span>
@@ -39,7 +40,7 @@ export default function NavItem({ title, mobile }) {
         {open && (
           <div className="ml-4 mt-2 space-y-2">
             {items.map((item) => (
-              <Link key={item.name} href={item.href} className="block text-gray-600 hover:text-[#8B1C1C] transition py-1">
+              <Link key={item.name} href={item.href} className="block text-gray-600 hover:text-[#8B1C1C] transition py-1" title={item.name}>
                 {item.name}
               </Link>
             ))}
@@ -55,7 +56,7 @@ export default function NavItem({ title, mobile }) {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <span className="cursor-pointer text-gray-800 font-medium hover:text-[#8B1C1C] transition select-none">
+      <span className="cursor-pointer text-gray-800 font-medium hover:text-[#8B1C1C] transition select-none" title={title}>
         {title} <span className="text-xs">▾</span>
       </span>
 
@@ -67,6 +68,7 @@ export default function NavItem({ title, mobile }) {
                 key={item.name}
                 href={item.href}
                 className="block px-5 py-3 text-gray-700 hover:bg-[#153e64] hover:text-white transition font-medium text-sm"
+                title={item.name}
               >
                 {item.name}
               </Link>
