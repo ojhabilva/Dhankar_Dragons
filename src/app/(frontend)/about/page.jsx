@@ -8,7 +8,7 @@ export default function AboutPage() {
 
       <section className="relative h-[50vh] md:h-[85vh] w-full">
         <Image
-          src="/Home page/Hero image/Home.jpg"
+          src="/Dhankhar Dragons/Hero image/Home.jpg"
           alt="Hotel View"
           fill
           className="object-cover"
@@ -21,7 +21,7 @@ export default function AboutPage() {
           <p className="uppercase tracking-widest text-sm mb-3">ABOUT</p>
 
           <Image
-            src="/Home page/dhankhar dragons.png"
+            src="/Dhankhar Dragons/dhankhar dragons.png"
             alt="Dhankhar Dragons"
             width={420}
             height={120}
@@ -47,7 +47,7 @@ export default function AboutPage() {
         </p>
 
         <Image
-          src="/Home page/about/Rectangle 53.png"
+          src="/Dhankhar Dragons/about/Rectangle 53.png"
           alt="Guests"
           width={600}
           height={400}
@@ -57,7 +57,7 @@ export default function AboutPage() {
 
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <Image
-          src="/Home page/about/Firefly_A cinematic travel photograph of a solo female traveler sitting on the edge of a rock 524921 1.png"
+          src="/Dhankhar Dragons/about/Firefly_A cinematic travel photograph of a solo female traveler sitting on the edge of a rock 524921 1.png"
           alt="Mission"
           width={600}
           height={400}
@@ -91,7 +91,7 @@ export default function AboutPage() {
 
         <div className="relative w-full h-64 md:h-full min-h-[250px]">
           <Image
-            src="/Home page/about/Firefly_A Ladakhi woman hotel receptionist receiving a phone call at the reception desk, wear 661804 1.png"
+            src="/Dhankhar Dragons/about/Firefly_A Ladakhi woman hotel receptionist receiving a phone call at the reception desk, wear 661804 1.png"
             alt="Reception"
             width={900}
             height={600}

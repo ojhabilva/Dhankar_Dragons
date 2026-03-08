@@ -46,9 +46,11 @@ export default function AdminLoginPage() {
             <div className="relative z-10 w-full max-w-md p-8 bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
                 <div className="flex flex-col items-center mb-8">
                     <div className="p-4 bg-white rounded-2xl shadow-inner mb-4">
-                        <Image src="/Home page/dragon.png" alt="Dhankhar Dragons Logo" width={48} height={48} className="w-12 h-12 object-contain" />
+                        <Image src="/Dhankhar Dragons/dragon.png" alt="Dhankhar Dragons Logo" width={48} height={48} className="w-12 h-12 object-contain" />
                     </div>
-                    <h1 className="text-3xl font-serif font-bold text-[#153e64]">Admin Portal</h1>
+                    <h2 className="mt-6 text-center text-3xl font-serif font-extrabold text-[#153e64]">
+                        Dhankhar Dragons Admin
+                    </h2>
                     <p className="text-gray-500 mt-2 italic">Dhankhar Dragons</p>
                 </div>
 

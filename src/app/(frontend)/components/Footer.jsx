@@ -29,11 +29,11 @@ export default function Footer() {
             <Link
               href="/"
               className="flex flex-col items-start gap-3 group"
-              title="Dhankar Dragons - Home"
+              title="Dhankhar Dragons - Home"
             >
               <Image
-                src="/Home page/logo 1@2x.png"
-                alt="Dhankar Dragons Logo"
+                src="/Dhankhar Dragons/logo 1@2x.png"
+                alt="Dhankhar Dragons Logo"
                 width={240}
                 height={180}
                 className="object-contain group-hover:scale-105 transition"
@@ -41,8 +41,8 @@ export default function Footer() {
 
               <div>
                 <Image
-                  src="/Home page/dhankhar dragons.png"
-                  alt="Dhankar Dragons"
+                  src="/Dhankhar Dragons/dhankhar dragons.png"
+                  alt="Dhankhar Dragons"
                   width={220}
                   height={60}
                   className="mb-1"

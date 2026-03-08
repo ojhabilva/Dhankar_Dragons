@@ -80,7 +80,7 @@ The app will be available at `http://localhost:5544`.
 │   │   │   ├── contact/        # Contact page
 │   │   │   ├── experience/     # Spiti Valley experiences
 │   │   │   ├── packages/       # Tour packages (summer/winter + dynamic)
-│   │   │   ├── ride/           # Rental services (bike, horse, car)
+│   │   │   ├── ride/           # Rental services
 │   │   │   ├── rooms/          # Room details (dynamic [slug] route)
 │   │   │   ├── privacy-policy/ # Privacy policy
 │   │   │   ├── components/     # Shared frontend components

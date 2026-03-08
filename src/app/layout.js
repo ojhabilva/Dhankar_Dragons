@@ -2,8 +2,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Home Page",
-  description: "Home page - description",
+  title: "Dhankar Dragons",
+  description: "Experience the magic of Ladakh with Dhankar Dragons - Premium Stays and Adventures.",
+  icons: {
+    icon: "/Dhankhar Dragons/dhankhar dragons.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -15,4 +18,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
- 

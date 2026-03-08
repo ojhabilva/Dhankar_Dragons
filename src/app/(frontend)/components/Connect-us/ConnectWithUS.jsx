@@ -19,7 +19,7 @@ export default function Connect() {
             className="hover:scale-110 transition"
             title="Follow us on Facebook"
           >
-            <img src="/Home page/icons/facebook-color-svgrepo-com 1.svg" alt="Facebook" className="w-9" />
+            <img src="/Dhankhar Dragons/icons/facebook-color-svgrepo-com 1.svg" alt="Facebook" className="w-9" />
           </Link>
 
           <Link
@@ -29,7 +29,7 @@ export default function Connect() {
             className="hover:scale-110 transition"
             title="Follow us on Instagram"
           >
-            <img src="/Home page/icons/instagram-1-svgrepo-com 1.svg" alt="Instagram" className="w-9" />
+            <img src="/Dhankhar Dragons/icons/instagram-1-svgrepo-com 1.svg" alt="Instagram" className="w-9" />
           </Link>
 
           <Link
@@ -39,7 +39,7 @@ export default function Connect() {
             className="hover:scale-110 transition"
             title="Chat with us on WhatsApp"
           >
-            <img src="/Home page/icons/whatsapp-whats-app-svgrepo-com 1.svg" alt="WhatsApp" className="w-9" />
+            <img src="/Dhankhar Dragons/icons/whatsapp-whats-app-svgrepo-com 1.svg" alt="WhatsApp" className="w-9" />
           </Link>
 
         </div>

@@ -53,7 +53,7 @@ export default function TestimonialSlider() {
 
         <div className="hidden lg:block absolute left-24 -top-12 z-30 pointer-events-none">
           <Image
-            src="/Home page/dragon.png"
+            src="/Dhankhar Dragons/dragon.png"
             alt="Dragon decoration"
             width={180}
             height={180}
@@ -63,7 +63,7 @@ export default function TestimonialSlider() {
 
         <div className="hidden lg:block absolute right-24 -top-12 z-30 pointer-events-none">
           <Image
-            src="/Home page/dragon.png"
+            src="/Dhankhar Dragons/dragon.png"
             alt="Dragon decoration"
             width={180}
             height={180}
@@ -137,7 +137,7 @@ export default function TestimonialSlider() {
 
       <div className="relative w-full h-[300px] -mt-16">
         <Image
-          src="/Home page/Testimonials/ChatGPT Image Jan 19, 2026, 11_45_22 AM.png"
+          src="/Dhankhar Dragons/Testimonials/ChatGPT Image Jan 19, 2026, 11_45_22 AM.png"
           alt="Mountain landscape"
           fill
           className="object-cover object-top"

@@ -36,7 +36,7 @@ export default function ExperienceSection() {
 
             <div className="relative w-full h-[45vh] md:h-[70vh]">
                 <Image
-                    src="/Home page/experience/Firefly (1) 1.png"
+                    src="/Dhankhar Dragons/experience/Firefly (1) 1.png"
                     alt="Spiti Valley"
                     fill
                     className="object-cover"
@@ -62,19 +62,19 @@ export default function ExperienceSection() {
             <SectionHeader title="Scenic Hotspots & Nature’s Wonders" />
 
             <ExperienceCard
-                img="/Home page/experience/istockphoto-1319416974-612x612 1.png"
+                img="/Dhankhar Dragons/experience/istockphoto-1319416974-612x612 1.png"
                 title="Chandra Taal Lake"
                 desc="A crescent moon-shaped lake at high altitude, glowing with surreal reflections of snow peaks — a postcard from reality."
             />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 1.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 1.png"
                 title="Kunzum Pass"
                 desc="A thrilling high pass that connects Lahaul with Spiti, offering panoramic views of raw mountain beauty."
             />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 3.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 3.png"
                 title="Dhankar Fortress & Lake"
                 desc="Historical citadel perched above a lakefed river gorge, telling tales from centuries past."
             />
@@ -82,13 +82,13 @@ export default function ExperienceSection() {
             <SectionHeader title="Cultural & Heritage Experiences" />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 2.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 2.png"
                 title="Key Monastery Exploration"
                 desc="Walk through one of Spiti’s oldest monasteries — witness timeless frescoes, age-old scriptures, and chanting rituals."
             />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 4.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 4.png"
                 title="Kibber & Tabo Village Tours"
                 desc="Experience life in ancient Himalayan settlements where traditions thrive amidst stark landscapes."
             />
@@ -96,13 +96,13 @@ export default function ExperienceSection() {
             <SectionHeader title="Adventure Trails & Outdoor Activities" />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 5.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 5.png"
                 title="Trek to Chandratal Camps"
                 desc="Guided high-altitude treks to serene campsites by the lake — perfect for sunrise views and starry nights."
             />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 6.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 6.png"
                 title="Off-Road Drives"
                 desc="Experience exhilarating drives over rocky trails and mountain flats, with each turn revealing a new vista."
             />
@@ -110,18 +110,18 @@ export default function ExperienceSection() {
             <SectionHeader title="Immersive Experiences" />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 7.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 7.png"
                 title="Stargazing Nights"
                 desc="Under endless skies, watch constellations emerge as Spiti’s silence deepens — an astral retreat above the world."
             />
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 8.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 8.png"
                 title="Riverside Bonfire"
                 desc="Warm your soul by bonfire on the riverbank with traditional folk stories and local flavors"
             />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 9.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 9.png"
                 title="Village Walks & Local Crafts"
                 desc="Meet Spitian artisans — witness wool weaving, traditional embroidery, and age-old craft styles."
             />
@@ -129,13 +129,13 @@ export default function ExperienceSection() {
             <SectionHeader title="Culinary & Evening Delights" />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 10.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 10.png"
                 title="Spitian Feast"
                 desc="Savour local dishes like thukpa and yak-meat stews, paired with aromatic herbal chai — a flavour of mountain heritage."
             />
 
             <ExperienceCard
-                img="/Home page/experience/photo-1581791534721-e599df4417f7 11.png"
+                img="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 11.png"
                 title="Sunset Viewpoints"
                 desc="Settle on a ridge with a warm drink, as the sun paints the snow-peaks in gold and crimson."
             />

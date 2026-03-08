@@ -13,7 +13,7 @@ export default function ConnectSection() {
       >
         <div className="flex justify-center">
           <Image
-            src="/Home page/animal.png"
+            src="/Dhankhar Dragons/animal.png"
             alt="Dragon"
             width={320}
             height={320}

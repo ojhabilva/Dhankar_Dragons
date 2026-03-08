@@ -9,7 +9,7 @@ export default function SpitiLuxuryPackage() {
 
       <div className="relative h-[60vh] w-full">
         <Image
-          src="/Home page/packages/summer/Firefly (1) 1.png"
+          src="/Dhankhar Dragons/packages/summer/Firefly (1) 1.png"
           alt="Spiti Luxury"
           fill
           className="object-cover"
@@ -57,7 +57,7 @@ export default function SpitiLuxuryPackage() {
         ].map((img, i) => (
           <div key={i} className="relative h-48">
             <Image
-              src={`/Home page/packages/summer/${img}`}
+              src={`/Dhankhar Dragons/packages/summer/${img}`}
               alt="Spiti View"
               fill
               className="object-cover rounded"
@@ -101,7 +101,7 @@ export default function SpitiLuxuryPackage() {
 
         <div className="relative h-[420px]">
           <Image
-            src="/Home page/experience/photo-1581791534721-e599df4417f7 3.png"
+            src="/Dhankhar Dragons/experience/photo-1581791534721-e599df4417f7 3.png"
             alt="Dhankar"
             fill
             className="object-cover rounded"

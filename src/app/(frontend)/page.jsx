@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import HomeImg from "../../../public/Home page/Hero image/Home.jpg";
-import DanceImg from "../../../public/Home page/Elevate your escape/danceImg.png"
-import WorkImg1 from "../../../public/Home page/Elevate your escape/Work1.jpg"
-import WorkImg2 from "../../../public/Home page/Elevate your escape/Work2.jpg"
-import BackgroungImg from "../../../public/Home page/Ride/background.png"
-import Bike from "../../../public/Home page/Ride/bike.png"
-import Hourse from "../../../public/Home page/Ride/hourse.png"
-import Car from "../../../public/Home page/Ride/car.png"
+import HomeImg from "../../../public/Dhankhar Dragons/Hero image/Home.jpg";
+import DanceImg from "../../../public/Dhankhar Dragons/Elevate your escape/danceImg.png"
+import WorkImg1 from "../../../public/Dhankhar Dragons/Elevate your escape/Work1.jpg"
+import WorkImg2 from "../../../public/Dhankhar Dragons/Elevate your escape/Work2.jpg"
+import BackgroungImg from "../../../public/Dhankhar Dragons/Ride/background.png"
+import Bike from "../../../public/Dhankhar Dragons/Ride/bike.png"
+import Hourse from "../../../public/Dhankhar Dragons/Ride/hourse.png"
+import Car from "../../../public/Dhankhar Dragons/Ride/car.png"
 import Gallery from "../(frontend)/components/Gallery/Gallery"
 import RoomCard from "../(frontend)/components/Room/RoomCard"
 import TestimonialSlider from "../(frontend)/components/TestimonialSider/TestimonialSlider"
@@ -39,7 +39,7 @@ export default function HomePage() {
 
   return (
     <div className="">
-      <section className="HeroImg relative w-full h-[50vh] md:h-[77vh] overflow-hidden">
+      <section className="relative w-full h-[50vh] md:h-[77vh] overflow-hidden">
         <Image
           src={HomeImg}
           alt="Resort"
@@ -48,7 +48,7 @@ export default function HomePage() {
           className="object-contain lg:object-cover"
         />
       </section>
-      <section className="Elevate Your Escape max-w-7xl mx-auto px-4 py-5">
+      <section className="max-w-7xl mx-auto px-4 py-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
           <div className="w-full h-full">
@@ -96,7 +96,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className=" enjoyHoliday   relative w-full py-5">
+      <section className="relative w-full py-5">
 
         <div className="absolute inset-0 -z-10">
           <Image
@@ -179,7 +179,7 @@ export default function HomePage() {
       <section className="relative w-full h-[350px] md:h-[500px] overflow-hidden">
 
         <Image
-          src="/Home page/camera.jpg"
+          src="/Dhankhar Dragons/camera.jpg"
           alt="Connect with us"
           fill
           className="object-cover"
@@ -202,7 +202,7 @@ export default function HomePage() {
               className="hover:scale-110 transition"
               title="Follow us on Facebook"
             >
-              <img src="/Home page/icons/facebook-color-svgrepo-com 1.svg" alt="Facebook" className="w-9" />
+              <img src="/Dhankhar Dragons/icons/facebook-color-svgrepo-com 1.svg" alt="Facebook" className="w-9" />
             </Link>
 
             <Link
@@ -212,7 +212,7 @@ export default function HomePage() {
               className="hover:scale-110 transition"
               title="Follow us on Instagram"
             >
-              <img src="/Home page/icons/instagram-1-svgrepo-com 1.svg" alt="Instagram" className="w-9" />
+              <img src="/Dhankhar Dragons/icons/instagram-1-svgrepo-com 1.svg" alt="Instagram" className="w-9" />
             </Link>
 
             <Link
@@ -222,7 +222,7 @@ export default function HomePage() {
               className="hover:scale-110 transition"
               title="Chat with us on WhatsApp"
             >
-              <img src="/Home page/icons/whatsapp-whats-app-svgrepo-com 1.svg" alt="WhatsApp" className="w-9" />
+              <img src="/Dhankhar Dragons/icons/whatsapp-whats-app-svgrepo-com 1.svg" alt="WhatsApp" className="w-9" />
             </Link>
 
           </div>

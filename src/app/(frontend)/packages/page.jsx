@@ -20,7 +20,7 @@ export default function PackagesPage() {
         <div className="bg-[#f5f5f0] min-h-screen">
             <div className="relative h-[35vh] md:h-[50vh] w-full">
                 <Image
-                    src="/Home page/packages/summer/Firefly (1) 1.png"
+                    src="/Dhankhar Dragons/packages/summer/Firefly (1) 1.png"
                     alt="Spiti Valley Packages"
                     fill
                     className="object-cover"
@@ -45,7 +45,7 @@ export default function PackagesPage() {
                             subtitle="Diversity of Spiti Valley"
                             duration="6 Nights / 7 Days"
                             price="₹ Contact for Pricing"
-                            image="/Home page/packages/summer/Firefly (1) 1.png"
+                            image="/Dhankhar Dragons/packages/summer/Firefly (1) 1.png"
                             href="/packages/summer"
                             season="Summer"
                         />
@@ -54,7 +54,7 @@ export default function PackagesPage() {
                             subtitle="The Frozen Kingdom"
                             duration="5 Nights / 6 Days"
                             price="₹ Contact for Pricing"
-                            image="/Home page/packages/summer/Ki (Key) Monastery 01 1.png"
+                            image="/Dhankhar Dragons/packages/summer/Ki (Key) Monastery 01 1.png"
                             href="/packages/winter"
                             season="Winter"
                         />
