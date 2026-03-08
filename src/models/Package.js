@@ -30,7 +30,7 @@ const Package = sequelize.define("packages", {
         allowNull: false,
     },
     image: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     description: {
@@ -40,6 +40,10 @@ const Package = sequelize.define("packages", {
     is_active: {
         type: DataTypes.INTEGER,
         defaultValue: 1,
+    },
+    terms_and_conditions: {
+        type: DataTypes.TEXT,
+        defaultValue: "[]",
     },
 });
 

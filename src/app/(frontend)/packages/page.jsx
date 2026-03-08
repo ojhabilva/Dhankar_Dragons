@@ -68,39 +68,46 @@ export default function PackagesPage() {
                         <h2 className="text-3xl font-serif font-bold text-[#153e64] mb-2" title="Custom Packages">Custom Packages</h2>
                         <p className="text-gray-500 italic mb-8">Specially curated experiences from our team</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {packages.map((pkg) => (
-                                <div key={pkg.id} className="bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
-                                    <div className="relative h-52 overflow-hidden">
-                                        <img
-                                            src={pkg.image}
-                                            alt={pkg.name}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold text-[#8B1C1C] shadow-md">
-                                            ₹{pkg.price?.toLocaleString?.() || pkg.price}
+                            {packages.map((pkg) => {
+                                let coverImage = "";
+                                try {
+                                    const parsedImages = JSON.parse(pkg.image);
+                                    coverImage = Array.isArray(parsedImages) ? parsedImages[0] : pkg.image;
+                                } catch (e) {
+                                    coverImage = pkg.image;
+                                }
+
+                                return (
+                                    <div key={pkg.id} className="bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+                                        <div className="relative h-52 overflow-hidden">
+                                            <img
+                                                src={coverImage}
+                                                alt={pkg.name}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold text-[#8B1C1C] shadow-md">
+                                                ₹{pkg.price?.toLocaleString?.() || pkg.price}
+                                            </div>
+                                        </div>
+                                        <div className="p-6">
+                                            <h3 className="text-xl font-serif font-bold text-gray-800" title={pkg.name}>{pkg.name}</h3>
+                                            <p className="text-sm text-gray-500 mt-1 uppercase tracking-wider">{pkg.duration}</p>
+                                            <div className="flex gap-3 mt-5">
+                                                <Link href={`/packages/${pkg.id}`} className="flex-1" title={`View ${pkg.name} details`}>
+                                                    <button className="w-full border-2 border-[#153e64] text-[#153e64] font-bold py-2.5 rounded-xl hover:bg-[#153e64] hover:text-white transition" title="View Details">
+                                                        View Details
+                                                    </button>
+                                                </Link>
+                                                <Link href="/booking" className="flex-1" title="Book this package">
+                                                    <button className="w-full bg-[#8B1C1C] hover:bg-[#6f1515] text-white font-bold py-2.5 rounded-xl transition" title="Book Now">
+                                                        Book Now
+                                                    </button>
+                                                </Link>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="p-6">
-                                        <h3 className="text-xl font-serif font-bold text-gray-800" title={pkg.name}>{pkg.name}</h3>
-                                        <p className="text-sm text-gray-500 mt-1 uppercase tracking-wider">{pkg.duration}</p>
-                                        {pkg.description && (
-                                            <p className="text-sm text-gray-600 mt-3 line-clamp-2">{pkg.description}</p>
-                                        )}
-                                        <div className="flex gap-3 mt-5">
-                                            <Link href={`/packages/${pkg.id}`} className="flex-1" title={`View ${pkg.name} details`}>
-                                                <button className="w-full border-2 border-[#153e64] text-[#153e64] font-bold py-2.5 rounded-xl hover:bg-[#153e64] hover:text-white transition" title="View Details">
-                                                    View Details
-                                                </button>
-                                            </Link>
-                                            <Link href="/booking" className="flex-1" title="Book this package">
-                                                <button className="w-full bg-[#8B1C1C] hover:bg-[#6f1515] text-white font-bold py-2.5 rounded-xl transition" title="Book Now">
-                                                    Book Now
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 ) : null}
