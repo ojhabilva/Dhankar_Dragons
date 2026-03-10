@@ -134,7 +134,7 @@ export default function AdminGalleryPage() {
                         <h2 className="text-xl font-serif font-bold text-gray-800">Add Gallery Image</h2>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Category <span className="text-red-500">*</span></label>
                             <select
                                 value={selectedCategory}
                                 onChange={(e) => setSelectedCategory(e.target.value)}
@@ -147,7 +147,7 @@ export default function AdminGalleryPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Image</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Image <span className="text-red-500">*</span></label>
                             <label className="flex flex-col items-center justify-center w-full h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-[#153e64] hover:bg-blue-50/30 transition-all group">
                                 {uploading ? (
                                     <div className="flex flex-col items-center gap-2">

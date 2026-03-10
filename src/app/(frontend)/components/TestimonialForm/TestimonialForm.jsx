@@ -53,9 +53,10 @@ export default function TestimonialForm() {
       )}
 
       <div className="mb-6">
-        <label className="block mb-2 font-medium text-lg">Your Name:</label>
+        <label className="block mb-2 font-medium text-lg">Your Name: <span className="text-red-500">*</span></label>
         <input
           type="text"
+          required
           className="w-full border rounded-md p-4 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
           placeholder="Enter your name"
           value={name}
@@ -65,7 +66,7 @@ export default function TestimonialForm() {
 
       <div className="flex justify-between items-start mb-8">
         <div>
-          <p className="text-gray-500 mb-2">Score:</p>
+          <p className="text-gray-500 mb-2">Score: <span className="text-red-500">*</span></p>
           <div className="flex gap-2">
             {[1, 2, 3, 4, 5].map((star) => (
               <button
@@ -82,9 +83,10 @@ export default function TestimonialForm() {
       </div>
 
       <label className="block mb-2 font-medium text-lg">
-        Review:
+        Review: <span className="text-red-500">*</span>
       </label>
       <textarea
+        required
         className="w-full border rounded-md p-4 mb-10 h-40 resize-none bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
         placeholder="Excellent Service!!"
         value={review}

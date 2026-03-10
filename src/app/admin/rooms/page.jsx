@@ -164,7 +164,7 @@ export default function AdminRoomsPage() {
 
     const UploadBox = ({ label, field, icon }) => (
         <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">{label}</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">{label} <span className="text-red-500">*</span></label>
             <label className="flex flex-col items-center justify-center w-full h-36 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-[#153e64] hover:bg-blue-50/30 transition-all group">
                 {uploading[field] ? (
                     <div className="flex flex-col items-center gap-2">
@@ -211,7 +211,7 @@ export default function AdminRoomsPage() {
                         <h2 className="text-xl font-serif font-bold text-gray-800">{editingId ? "Edit Room" : "Add New Room"}</h2>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Type (Slug)</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Type (Slug) <span className="text-red-500">*</span></label>
                             <select
                                 value={formData.slug}
                                 onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
@@ -231,7 +231,7 @@ export default function AdminRoomsPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Name</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Room Name <span className="text-red-500">*</span></label>
                             <input
                                 type="text"
                                 value={formData.name}
@@ -248,7 +248,7 @@ export default function AdminRoomsPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-3">Room Capacity</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-3">Room Capacity <span className="text-red-500">*</span></label>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Adults</p>

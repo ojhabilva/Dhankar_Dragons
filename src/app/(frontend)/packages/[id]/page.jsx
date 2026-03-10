@@ -100,7 +100,6 @@ export default function PackageDetailsPage() {
                         <h2 className="text-xl font-serif uppercase tracking-wide">
                             {pkg.name}
                         </h2>
-                        <p className="text-sm mt-1">{pkg.duration}</p>
                     </div>
                 </div>
                 <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-5 py-2 rounded-full text-lg font-bold text-[#8B1C1C] shadow-lg">
@@ -110,7 +109,7 @@ export default function PackageDetailsPage() {
 
             <div className="max-w-6xl mx-auto px-6 py-10 text-center">
                 <h2 className="text-2xl font-serif font-semibold">
-                    {pkg.name}: {pkg.duration}
+                    {pkg.name}
                 </h2>
             </div>
 

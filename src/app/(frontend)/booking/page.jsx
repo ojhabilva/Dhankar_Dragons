@@ -75,7 +75,7 @@ function BookingForm() {
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl md:rounded-3xl shadow-xl p-5 md:p-8 space-y-5 md:space-y-6">
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Select Room *</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Select Room <span className="text-red-500">*</span></label>
             <select
               name="room_name"
               value={form.room_name}
@@ -92,7 +92,7 @@ function BookingForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Check-In Date *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Check-In Date <span className="text-red-500">*</span></label>
               <input
                 type="date"
                 name="check_in"
@@ -104,7 +104,7 @@ function BookingForm() {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Check-Out Date *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Check-Out Date <span className="text-red-500">*</span></label>
               <input
                 type="date"
                 name="check_out"
@@ -135,7 +135,7 @@ function BookingForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 name="customer_name"
@@ -147,7 +147,7 @@ function BookingForm() {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
               <input
                 type="email"
                 name="customer_email"
@@ -162,7 +162,7 @@ function BookingForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
               <input
                 type="tel"
                 name="customer_phone"

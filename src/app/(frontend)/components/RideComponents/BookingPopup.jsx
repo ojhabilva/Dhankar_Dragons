@@ -71,8 +71,8 @@ export default function BookingPopup({ open, onClose, service }) {
             required
             value={formData.customer_name}
             onChange={(e) => setFormData({ ...formData, customer_name: e.target.value })}
-            placeholder="Your Name"
-            className="w-full bg-white/10 border border-white/20 rounded-lg outline-none py-3 px-4 placeholder:text-white placeholder:opacity-100 text-white focus:bg-white/20 focus:border-white transition-all shadow-inner"
+            placeholder="Your Name *"
+            className="w-full bg-white/10 border border-white/20 rounded-lg outline-none py-3 px-4 placeholder:text-red-400 placeholder:opacity-100 text-white focus:bg-white/20 focus:border-white transition-all shadow-inner"
           />
 
           <input
@@ -80,16 +80,16 @@ export default function BookingPopup({ open, onClose, service }) {
             type="email"
             value={formData.customer_email}
             onChange={(e) => setFormData({ ...formData, customer_email: e.target.value })}
-            placeholder="Your E-Mail"
-            className="w-full bg-white/10 border border-white/20 rounded-lg outline-none py-3 px-4 placeholder:text-white placeholder:opacity-100 text-white focus:bg-white/20 focus:border-white transition-all shadow-inner"
+            placeholder="Your E-Mail *"
+            className="w-full bg-white/10 border border-white/20 rounded-lg outline-none py-3 px-4 placeholder:text-red-400 placeholder:opacity-100 text-white focus:bg-white/20 focus:border-white transition-all shadow-inner"
           />
 
           <input
             required
             value={formData.customer_phone}
             onChange={(e) => setFormData({ ...formData, customer_phone: e.target.value })}
-            placeholder="Phone Number"
-            className="w-full bg-white/10 border border-white/20 rounded-lg outline-none py-3 px-4 placeholder:text-white placeholder:opacity-100 text-white focus:bg-white/20 focus:border-white transition-all shadow-inner"
+            placeholder="Phone Number *"
+            className="w-full bg-white/10 border border-white/20 rounded-lg outline-none py-3 px-4 placeholder:text-red-400 placeholder:opacity-100 text-white focus:bg-white/20 focus:border-white transition-all shadow-inner"
           />
 
           <div className="relative">
@@ -100,7 +100,7 @@ export default function BookingPopup({ open, onClose, service }) {
               onChange={(e) => setFormData({ ...formData, booking_date: e.target.value })}
               className="w-full bg-white/10 border border-white/20 rounded-lg outline-none py-3 px-4 text-white focus:bg-white/20 focus:border-white transition-all shadow-inner appearance-none inverse-calendar"
             />
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-60 text-white">📅</span>
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-60 text-white">📅 *</span>
           </div>
 
           <button
@@ -121,7 +121,7 @@ export default function BookingPopup({ open, onClose, service }) {
 
       <style jsx>{`
         input::placeholder {
-          color: white !important;
+          color: #f87171 !important;
           opacity: 1 !important;
         }
         .inverse-calendar::-webkit-calendar-picker-indicator {

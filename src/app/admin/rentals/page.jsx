@@ -141,7 +141,7 @@ export default function AdminRentalsPage() {
                         <h2 className="text-xl font-serif font-bold text-gray-800">{editingId ? "Edit Service" : "Add New Rental"}</h2>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Service Type</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Service Type <span className="text-red-500">*</span></label>
                             <select
                                 value={formData.type}
                                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
@@ -155,7 +155,7 @@ export default function AdminRentalsPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">About Service</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">About Service <span className="text-red-500">*</span></label>
                             <textarea
                                 value={formData.about}
                                 onChange={(e) => setFormData({ ...formData, about: e.target.value })}
@@ -166,7 +166,7 @@ export default function AdminRentalsPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Service Image</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Service Image <span className="text-red-500">*</span></label>
                             <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-[#153e64] hover:bg-blue-50/30 transition-all group overflow-hidden">
                                 {uploading ? (
                                     <div className="flex flex-col items-center gap-2">

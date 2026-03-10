@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
 
                 <form onSubmit={handleLogin} className="space-y-6">
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
                         <input
                             type="email"
                             value={email}
@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Password <span className="text-red-500">*</span></label>
                         <input
                             type="password"
                             value={password}

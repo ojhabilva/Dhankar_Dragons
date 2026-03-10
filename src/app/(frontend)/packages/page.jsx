@@ -43,7 +43,6 @@ export default function PackagesPage() {
                         <PackageCard
                             title="Summer Spiti Explorer"
                             subtitle="Diversity of Spiti Valley"
-                            duration="6 Nights / 7 Days"
                             price="₹ Contact for Pricing"
                             image="/Dhankhar Dragons/packages/summer/Firefly (1) 1.png"
                             href="/packages/summer"
@@ -52,7 +51,6 @@ export default function PackagesPage() {
                         <PackageCard
                             title="Winter Spiti Expedition"
                             subtitle="The Frozen Kingdom"
-                            duration="5 Nights / 6 Days"
                             price="₹ Contact for Pricing"
                             image="/Dhankhar Dragons/packages/summer/Ki (Key) Monastery 01 1.png"
                             href="/packages/winter"
@@ -91,7 +89,6 @@ export default function PackagesPage() {
                                         </div>
                                         <div className="p-6">
                                             <h3 className="text-xl font-serif font-bold text-gray-800" title={pkg.name}>{pkg.name}</h3>
-                                            <p className="text-sm text-gray-500 mt-1 uppercase tracking-wider">{pkg.duration}</p>
                                             <div className="flex gap-3 mt-5">
                                                 <Link href={`/packages/${pkg.id}`} className="flex-1" title={`View ${pkg.name} details`}>
                                                     <button className="w-full border-2 border-[#153e64] text-[#153e64] font-bold py-2.5 rounded-xl hover:bg-[#153e64] hover:text-white transition" title="View Details">
@@ -126,7 +123,7 @@ export default function PackagesPage() {
     );
 }
 
-function PackageCard({ title, subtitle, duration, price, image, href, season }) {
+function PackageCard({ title, subtitle, price, image, href, season }) {
     const seasonColor = season === "Summer" ? "bg-amber-100 text-amber-700" : "bg-blue-100 text-blue-700";
     return (
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
@@ -147,10 +144,6 @@ function PackageCard({ title, subtitle, duration, price, image, href, season }) 
             <div className="p-6">
                 <p className="text-sm text-gray-500 italic mb-1">{subtitle}</p>
                 <h3 className="text-xl font-serif font-bold text-gray-800" title={title}>{title}</h3>
-                <div className="mt-4">
-                    <p className="text-xs text-gray-400 uppercase tracking-wide">Duration</p>
-                    <p className="text-sm font-semibold text-gray-700">{duration}</p>
-                </div>
                 <div className="flex gap-3 mt-5">
                     <Link href={href} className="flex-1" title={`View ${title} details`}>
                         <button className="w-full border-2 border-[#153e64] text-[#153e64] font-bold py-2.5 rounded-xl hover:bg-[#153e64] hover:text-white transition" title="View Details">

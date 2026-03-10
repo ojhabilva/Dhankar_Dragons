@@ -13,8 +13,6 @@ export default function AdminPackagesPage() {
     const [terms, setTerms] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
-        days: 1,
-        nights: 0,
         price: "",
         description: "",
         is_active: 1
@@ -136,10 +134,8 @@ export default function AdminPackagesPage() {
 
         const validTerms = terms.filter(t => t.trim() !== "");
 
-        const duration = `${formData.days} Days / ${formData.nights} Nights`;
         const submitData = {
             ...formData,
-            duration,
             image: JSON.stringify(validImages),
             terms_and_conditions: JSON.stringify(validTerms)
         };
@@ -168,7 +164,7 @@ export default function AdminPackagesPage() {
     };
 
     const resetForm = () => {
-        setFormData({ name: "", days: 1, nights: 0, price: "", description: "", is_active: 1 });
+        setFormData({ name: "", price: "", description: "", is_active: 1 });
         setEditingId(null);
         setImages(["", "", "", "", "", ""]);
         setImagePreviews(["", "", "", "", "", ""]);
@@ -184,8 +180,6 @@ export default function AdminPackagesPage() {
         setTerms(parseJsonField(pkg.terms_and_conditions));
         setFormData({
             name: pkg.name,
-            days: pkg.days || 1,
-            nights: pkg.nights || 0,
             price: pkg.price,
             description: pkg.description || "",
             is_active: pkg.is_active
@@ -253,7 +247,7 @@ export default function AdminPackagesPage() {
                         <h2 className="text-xl font-serif font-bold text-gray-800">{editingId ? "Edit Package" : "Add New Package"}</h2>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Package Name</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Package Name <span className="text-red-500">*</span></label>
                             <input
                                 type="text"
                                 value={formData.name}
@@ -264,35 +258,8 @@ export default function AdminPackagesPage() {
                             />
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Days</label>
-                                <select
-                                    value={formData.days}
-                                    onChange={(e) => setFormData({ ...formData, days: parseInt(e.target.value) })}
-                                    className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
-                                >
-                                    {[...Array(21)].map((_, i) => (
-                                        <option key={i} value={i + 1}>{i + 1} Day{i + 1 > 1 ? 's' : ''}</option>
-                                    ))}
-                                </select>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Nights</label>
-                                <select
-                                    value={formData.nights}
-                                    onChange={(e) => setFormData({ ...formData, nights: parseInt(e.target.value) })}
-                                    className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
-                                >
-                                    {[...Array(21)].map((_, i) => (
-                                        <option key={i} value={i}>{i} Night{i !== 1 ? 's' : ''}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
-
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Price (₹)</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Price (₹) <span className="text-red-500">*</span></label>
                             <input
                                 type="number"
                                 value={formData.price}
@@ -304,7 +271,7 @@ export default function AdminPackagesPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-3">Package Images (up to 6)</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-3">Package Images (up to 6) <span className="text-red-500">*</span></label>
                             <div className="grid grid-cols-3 gap-3">
                                 {[0, 1, 2, 3, 4, 5].map((slotIndex) => (
                                     <div key={slotIndex} className="relative">
@@ -345,7 +312,7 @@ export default function AdminPackagesPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">About the Package (HTML Editor)</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">About the Package (HTML Editor) <span className="text-red-500">*</span></label>
                             <div className="border border-gray-200 rounded-xl overflow-hidden">
                                 <div className="flex flex-wrap gap-1 bg-gray-50 px-3 py-2 border-b border-gray-200">
                                     {[
@@ -399,7 +366,7 @@ export default function AdminPackagesPage() {
 
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="block text-sm font-semibold text-gray-700">Terms & Conditions</label>
+                                <label className="block text-sm font-semibold text-gray-700">Terms & Conditions <span className="text-red-500">*</span></label>
                                 <button
                                     type="button"
                                     onClick={handleAddTerm}
@@ -485,7 +452,7 @@ export default function AdminPackagesPage() {
                                                 <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full uppercase">Inactive</span>
                                             )}
                                         </div>
-                                        <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{pkg.duration}</p>
+
 
                                         {pkg.description && (
                                             <div

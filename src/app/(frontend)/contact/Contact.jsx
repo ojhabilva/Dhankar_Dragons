@@ -109,7 +109,7 @@ export default function Contact() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
                                 <input
                                     type="text"
                                     name="name"
@@ -121,7 +121,7 @@ export default function Contact() {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
                                 <input
                                     type="email"
                                     name="email"
@@ -135,7 +135,7 @@ export default function Contact() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
                             <input
                                 type="tel"
                                 name="phone"
@@ -148,7 +148,7 @@ export default function Contact() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Your Message</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Your Message <span className="text-red-500">*</span></label>
                             <textarea
                                 name="message"
                                 value={formData.message}
