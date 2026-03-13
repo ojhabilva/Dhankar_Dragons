@@ -15,7 +15,8 @@ export default function AdminPackagesPage() {
         name: "",
         price: "",
         description: "",
-        is_active: 1
+        is_active: 1,
+        season: "Summer"
     });
 
     useEffect(() => {
@@ -164,7 +165,7 @@ export default function AdminPackagesPage() {
     };
 
     const resetForm = () => {
-        setFormData({ name: "", price: "", description: "", is_active: 1 });
+        setFormData({ name: "", price: "", description: "", is_active: 1, season: "Summer" });
         setEditingId(null);
         setImages(["", "", "", "", "", ""]);
         setImagePreviews(["", "", "", "", "", ""]);
@@ -182,7 +183,8 @@ export default function AdminPackagesPage() {
             name: pkg.name,
             price: pkg.price,
             description: pkg.description || "",
-            is_active: pkg.is_active
+            is_active: pkg.is_active,
+            season: pkg.season || "Summer"
         });
     };
 
@@ -258,6 +260,7 @@ export default function AdminPackagesPage() {
                             />
                         </div>
 
+
                         <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">Price (₹) <span className="text-red-500">*</span></label>
                             <input
@@ -268,6 +271,19 @@ export default function AdminPackagesPage() {
                                 placeholder="Enter price in ₹"
                                 required
                             />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Season <span className="text-red-500">*</span></label>
+                            <select
+                                value={formData.season}
+                                onChange={(e) => setFormData({ ...formData, season: e.target.value })}
+                                className="w-full px-4 py-2 rounded-xl border border-gray-200 bg-gray-100 outline-none focus:ring-2 focus:ring-[#8B1C1C]"
+                                required
+                            >
+                                <option value="Summer">Summer</option>
+                                <option value="Winter">Winter</option>
+                            </select>
                         </div>
 
                         <div>
@@ -438,6 +454,9 @@ export default function AdminPackagesPage() {
                                         )}
                                         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#8B1C1C]">
                                             ₹{pkg.price}
+                                        </div>
+                                        <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold ${pkg.season === 'Winter' ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700'}`}>
+                                            {pkg.season || 'Summer'}
                                         </div>
                                         {pkgImages.length > 1 && (
                                             <div className="absolute bottom-3 left-3 bg-black/60 text-white text-xs px-2 py-1 rounded-lg backdrop-blur-sm">

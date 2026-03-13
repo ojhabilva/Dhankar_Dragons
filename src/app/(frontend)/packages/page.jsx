@@ -83,6 +83,9 @@ export default function PackagesPage() {
                                                 alt={pkg.name}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                             />
+                                            <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold ${pkg.season === 'Winter' ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700'}`}>
+                                                {pkg.season || 'Summer'}
+                                            </div>
                                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold text-[#8B1C1C] shadow-md">
                                                 ₹{pkg.price?.toLocaleString?.() || pkg.price}
                                             </div>

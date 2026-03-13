@@ -35,6 +35,11 @@ const Package = sequelize.define("packages", {
         type: DataTypes.TEXT,
         defaultValue: "[]",
     },
+    season: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "Summer",
+    },
 });
 
 export default Package;

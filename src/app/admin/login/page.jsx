@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
     };
 
     return (
-        <div className="min-screen flex items-center justify-center bg-[#fdfaf5] bg-[url('/Home%20page/camera.jpg')] bg-cover bg-center">
+        <div className="min-screen flex items-center justify-center bg-[#fdfaf5] bg-[url('/Dhankhar%20Dragons/camera.jpg')] bg-cover bg-center">
             <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
             <div className="relative z-10 w-full max-w-md p-8 bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
