@@ -17,10 +17,10 @@ export default function AdminLayoutClient({ children }) {
         const isAdminUser = localStorage.getItem("adminUser");
 
 
-        if (!token && pathname !== "/admin/login") {
-            router.push("/admin/login");
-        } else if (token && pathname === "/admin/login") {
-            router.push("/admin");
+        if (!token && pathname !== "/api/admin/login") {
+            router.push("/api/admin/login");
+        } else if (token && pathname === "/api/admin/login") {
+            router.push("/api/admin");
         } else {
             setLoading(false);
         }
@@ -34,10 +34,10 @@ export default function AdminLayoutClient({ children }) {
         localStorage.removeItem("adminToken");
         localStorage.removeItem("adminUser");
         toast.success("Logged out successfully");
-        router.push("/admin/login");
+        router.push("/api/admin/login");
     };
 
-    if (loading && pathname !== "/admin/login") {
+    if (loading && pathname !== "/api/admin/login") {
         return (
             <div className="min-h-screen flex items-center justify-center bg-[#fdfaf5]">
                 <div className="w-12 h-12 border-4 border-[#153e64]/20 border-t-[#153e64] rounded-full animate-spin"></div>
@@ -45,7 +45,7 @@ export default function AdminLayoutClient({ children }) {
         );
     }
 
-    if (pathname === "/admin/login") {
+    if (pathname === "/api/admin/login") {
         return (
             <>
                 <Toaster position="top-center" />
@@ -55,15 +55,15 @@ export default function AdminLayoutClient({ children }) {
     }
 
     const menuItems = [
-        { name: "Dashboard", icon: "📊", path: "/admin", title: "Dashboard" },
-        { name: "Testimonials", icon: "💬", path: "/admin/testimonials", title: "Testimonials" },
-        { name: "Rooms", icon: "🏨", path: "/admin/rooms", title: "Rooms" },
-        { name: "Packages", icon: "🎒", path: "/admin/packages", title: "Packages" },
-        { name: "Gallery", icon: "🖼️", path: "/admin/gallery", title: "Gallery" },
-        { name: "Rentals", icon: "🚲", path: "/admin/rentals", title: "Rental Services" },
-        { name: "Room Bookings", icon: "🛎️", path: "/admin/bookings", title: "Room Bookings" },
-        { name: "Rental Bookings", icon: "📝", path: "/admin/rental-bookings", title: "Rental Bookings" },
-        { name: "Contacts", icon: "📩", path: "/admin/contacts", title: "Contact Submissions" },
+        { name: "Dashboard", icon: "📊", path: "/api/admin", title: "Dashboard" },
+        { name: "Testimonials", icon: "💬", path: "/api/admin/testimonials", title: "Testimonials" },
+        { name: "Rooms", icon: "🏨", path: "/api/admin/rooms", title: "Rooms" },
+        { name: "Packages", icon: "🎒", path: "/api/admin/addpackage", title: "Packages" },
+        { name: "Gallery", icon: "🖼️", path: "/api/admin/gallery", title: "Gallery" },
+        { name: "Rentals", icon: "🚲", path: "/api/admin/rentals", title: "Rental Services" },
+        { name: "Room Bookings", icon: "🛎️", path: "/api/admin/bookings", title: "Room Bookings" },
+        { name: "Rental Bookings", icon: "📝", path: "/api/admin/rental-bookings", title: "Rental Bookings" },
+        { name: "Contacts", icon: "📩", path: "/api/admin/contacts", title: "Contact Submissions" },
     ];
 
     return (

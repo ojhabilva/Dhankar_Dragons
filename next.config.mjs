@@ -46,6 +46,36 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/admin/packages',
+        destination: '/api/admin/addpackage',
+        permanent: true,
+      },
+      {
+        source: '/admin/:path*',
+        destination: '/api/admin/:path*',
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/admin/addpackage',
+        destination: '/admin/packages',
+      },
+      {
+        source: '/api/admin/:path((?!login).*)*', // Avoid conflict with actual /api/admin/login API if needed, but login is POST anyway
+        destination: '/admin/:path*',
+      },
+      {
+        source: '/api/admin/login',
+        destination: '/admin/login',
+      }
+    ];
+  },
 };
 
 export default nextConfig;

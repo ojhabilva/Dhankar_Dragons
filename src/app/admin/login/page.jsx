@@ -16,7 +16,7 @@ export default function AdminLoginPage() {
         setLoading(true);
 
         try {
-            const res = await fetch("/api/admin/login", {
+            const res = await fetch("/api/auth-admin/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
@@ -28,7 +28,7 @@ export default function AdminLoginPage() {
                 localStorage.setItem("adminToken", data.token);
                 localStorage.setItem("adminUser", JSON.stringify(data.user));
                 toast.success("Login successful!");
-                router.push("/admin");
+                router.push("/api/admin");
             } else {
                 toast.error(data.msg || "Login failed");
             }

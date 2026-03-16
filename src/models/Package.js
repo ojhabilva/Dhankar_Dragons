@@ -13,7 +13,7 @@ const Package = sequelize.define("packages", {
     },
     duration: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     price: {
         type: DataTypes.INTEGER,
